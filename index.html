@@ -5,3 +5,26 @@
 layout: home
 author_profile: true
 ---
+<!-- Custom portfolio landing: shows a short intro and links to Resume and Blog -->
+
+<header class="page-header">
+  <h1>Raghav Kachroo</h1>
+  <p class="lead">Master's Student at UC San Diego. Building tools and systems that improve lives.</p>
+  <p>
+    <a class="btn" href="/assets/Raghav_Kachroo_resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+    <a class="btn" href="/posts/">Read my Blog</a>
+  </p>
+</header>
+
+<!-- Latest posts -->
+{% if site.posts and site.posts.size > 0 %}
+<h2>Latest posts</h2>
+<ul class="latest-posts">
+{% for post in site.posts limit:5 %}
+  <li>
+    <a href="{{ post.url }}">{{ post.title }}</a>
+    <span class="post-date"> — <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time></span>
+  </li>
+{% endfor %}
+</ul>
+{% endif %}

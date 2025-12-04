@@ -1,0 +1,10 @@
+<!-- Open PDF links in new tab -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const links = document.querySelectorAll('a[href$=".pdf"]');
+    links.forEach(function(link) {
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener');
+    });
+  });
+</script>

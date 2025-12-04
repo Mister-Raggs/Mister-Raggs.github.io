@@ -1,0 +1,1 @@
+DEPRECATED: The resume PDF is included in the repository as `assets/Raghav_Kachroo_resume.pdf`. This file is no longer needed.
