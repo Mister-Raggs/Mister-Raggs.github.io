@@ -28,7 +28,7 @@ search: true
 markdown: kramdown
 kramdown:
   input: GFM
-theme: minimal-mistakes-jekyll
+remote_theme: mmistakes/minimal-mistakes
 favicon: /assets/favicon.svg
 # Outputting
 permalink: /:categories/:title/
