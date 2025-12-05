@@ -72,11 +72,11 @@ a:hover {
   padding: 12px 28px;
   margin: 8px 12px 8px 0;
   background-color: var(--accent);
-  color: #ffffff;
+  color: #ffffff !important;
   border-radius: 6px;
   font-weight: 700;
   font-size: 0.95rem;
-  text-decoration: none;
+  text-decoration: none !important;
   transition: all 0.3s ease;
   border: 2px solid var(--accent);
   box-shadow: 0 2px 8px rgba(52, 152, 219, 0.15);
@@ -97,7 +97,7 @@ a:hover {
 
 .btn-outline {
   background-color: transparent;
-  color: #ffffff;
+  color: #ffffff !important;
   border: 2px solid #ffffff;
 }
 

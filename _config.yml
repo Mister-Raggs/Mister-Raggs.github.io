@@ -30,11 +30,6 @@ kramdown:
   input: GFM
 remote_theme: mmistakes/minimal-mistakes
 favicon: /assets/favicon.svg
-
-# Custom CSS
-custom_css:
-  - /assets/css/custom.css
-
 # Outputting
 permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
