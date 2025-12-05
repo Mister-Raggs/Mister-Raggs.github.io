@@ -113,17 +113,28 @@ main {
 }
 
 /* Author profile - Professional presentation */
-.author__avatar {
-  max-width: 140px;
-  width: 140px;
-  height: 140px;
-  border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1.5rem;
-  margin-right: 1.5rem;
-  object-fit: cover;
-  display: block;
-  flex-shrink: 0;
+.author {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1rem !important;
+}
+
+.author__avatar,
+.author .avatar,
+.author img {
+  width: 140px !important;
+  height: 140px !important;
+  border-radius: 50% !important; /* make circular */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12) !important;
+  margin: 0 !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+/* ensure the author content sits to the right of the avatar */
+.author__content,
+.author .author__content {
+  margin: 0 !important;
 }
 
 .author__name {
