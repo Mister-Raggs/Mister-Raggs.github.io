@@ -122,13 +122,15 @@ main {
 .author__avatar,
 .author .avatar,
 .author img {
-  width: 140px !important;
-  height: 140px !important;
+  width: 120px !important;
+  height: 120px !important;
   border-radius: 50% !important; /* make circular */
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
   margin: 0 !important;
+  padding: 0 !important;
   object-fit: cover !important;
   display: block !important;
+  flex-shrink: 0 !important;
 }
 
 /* ensure the author content sits to the right of the avatar */
