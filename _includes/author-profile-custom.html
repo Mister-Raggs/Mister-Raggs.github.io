@@ -1,0 +1,44 @@
+{% if page.author_profile %}
+  {% assign author = site.author[page.author] | default: site.author.first %}
+
+  {% if author %}
+    <div class="author__wrapper">
+      {% if author.avatar %}
+        <div class="avatar-wrapper">
+          <img src="{{ author.avatar | relative_url }}" alt="{{ author.name }}" class="avatar-img">
+        </div>
+      {% endif %}
+
+      <div class="author__content">
+        {% if author.name %}
+          <h3 class="author__name" itemprop="name">{{ author.name }}</h3>
+        {% endif %}
+
+        {% if author.bio %}
+          <p class="author__bio" itemprop="description">{{ author.bio }}</p>
+        {% endif %}
+
+        {% if author.location %}
+          <p class="author__location" itemprop="homeLocation">{{ author.location }}</p>
+        {% endif %}
+
+        {% if author.links %}
+          <ul class="author__urls">
+            {% for link in author.links %}
+              {% if link.url %}
+                <li>
+                  <a href="{{ link.url }}" itemprop="url" title="{{ link.label }}">
+                    {% if link.icon %}
+                      <i class="{{ link.icon }}" aria-hidden="true"></i>
+                    {% endif %}
+                    {{ link.label }}
+                  </a>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+{% endif %}

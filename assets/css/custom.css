@@ -113,40 +113,88 @@ main {
 }
 
 /* Author profile - Professional presentation */
+.author__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.avatar-wrapper {
+  width: 130px;
+  height: 130px;
+  padding: 5px;
+  border-radius: 50%;
+  border: 1px solid #f2f3f3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.avatar-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.author__content {
+  flex: 1;
+}
+
+.author__name {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.author__bio {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: 0 0 0.5rem 0;
+  font-style: italic;
+}
+
+.author__location {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0 0 1rem 0;
+}
+
+.author__urls {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.author__urls li {
+  display: inline-block;
+}
+
+.author__urls a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+}
+
+/* Old author styles - keep for backwards compatibility but with lower priority */
 .author {
-  display: flex !important;
-  align-items: center !important;
-  gap: 1rem !important;
-}
-
-/* Link wrapper around avatar - should have no padding/margin */
-.author__avatar {
-  display: block !important;
-  width: 120px !important;
-  height: 120px !important;
-  flex-shrink: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  line-height: 0 !important;
-}
-
-/* Image inside the link - fill the container completely */
-.author__avatar img,
-.u-photo {
-  width: 100% !important;
-  height: 100% !important;
-  border-radius: 50% !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  object-fit: cover !important;
-  display: block !important;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 /* ensure the author content sits to the right of the avatar */
-.author__content,
-.author .author__content {
-  margin: 0 !important;
+.author__content {
+  margin: 0;
 }
 
 .author__name {
