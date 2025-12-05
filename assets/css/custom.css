@@ -97,8 +97,8 @@ a:hover {
 
 .btn-outline {
   background-color: transparent;
-  color: var(--accent);
-  border: 2px solid var(--accent);
+  color: #ffffff;
+  border: 2px solid #ffffff;
 }
 
 .btn-outline:hover {
@@ -118,7 +118,6 @@ main {
   width: 140px;
   height: 140px;
   border-radius: 16px;
-  border: 3px solid var(--accent);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   margin-bottom: 1.5rem;
   margin-right: 1.5rem;
