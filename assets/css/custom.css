@@ -119,18 +119,28 @@ main {
   gap: 1rem !important;
 }
 
-.author__avatar,
-.author .avatar,
-.author img {
+/* Link wrapper around avatar - should have no padding/margin */
+.author__avatar {
+  display: block !important;
   width: 120px !important;
   height: 120px !important;
-  border-radius: 50% !important; /* make circular */
+  flex-shrink: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 0 !important;
+}
+
+/* Image inside the link - fill the container completely */
+.author__avatar img,
+.u-photo {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 50% !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
   margin: 0 !important;
   padding: 0 !important;
   object-fit: cover !important;
   display: block !important;
-  flex-shrink: 0 !important;
 }
 
 /* ensure the author content sits to the right of the avatar */
