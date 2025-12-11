@@ -63,7 +63,7 @@ plugins:
 author:
   name   : "Raghav Kachroo"
   avatar : "/assets/images/bio-photo.jpg"
-  bio    : "Master's Student at UC San Diego. Passionate about improving lives through technology."
+  bio    : "Hungry to build better faster."
   links:
     - label: "Website"
       icon: "fas fa-fw fa-link"
