@@ -42,8 +42,8 @@ When talking about Agentic performance, it's best understood with a confusion ma
 
 |  | Per example ground truth | No per example ground truth |
 |---|---|---|
-| **Objective Results** |  |  |
-| **Subjective Results**|  |  |
+| **Objective Eval** | * |  |
+| **Subjective Eval**|  | * |
 
 As you can imagine, objective results with per example ground truth are the easiest when it comes to Agent evaluation.
 
