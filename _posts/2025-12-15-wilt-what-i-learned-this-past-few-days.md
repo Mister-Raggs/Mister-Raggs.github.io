@@ -1,5 +1,5 @@
 ---
-title: "WILT: What I Learned This Past Few Days"
+title: "WILT: What I Learned These Past Few Days"
 date: 2025-12-15T00:00:00-08:00
 categories:
   - learning
@@ -57,7 +57,7 @@ Overall, this feels like a comprehensive introduction to LangChain essentials, a
 
 I love to chat about all things Agents, expanding their use cases and how to evaluate them. You can find me at:
 
-**Raghav Kachroo**  
-📧 Email: [rkachroo@ucsd.edu](mailto:rkachroo@ucsd.edu)  
-🌐 Website: [mister-raggs.github.io](https://mister-raggs.github.io)  
+**Raghav Kachroo**
+📧 Email: [rkachroo@ucsd.edu](mailto:rkachroo@ucsd.edu)
+🌐 Website: [mister-raggs.github.io](https://mister-raggs.github.io)
 💼 LinkedIn: [linkedin.com/in/raghavkachroo/](https://www.linkedin.com/in/raghavkachroo/){:target="_blank"}
