@@ -23,8 +23,39 @@ author_profile: true
 <!-- Hero buttons -->
 <div class="hero-buttons">
   <a class="btn" href="/assets/Raghav_Kachroo_resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+  <a class="btn" href="#projects">View Projects</a>
   <a class="btn" href="/posts/">Read my Blog</a>
 </div>
+
+<!-- Projects section -->
+<section class="home-projects" id="projects">
+  <h2>Projects</h2>
+  <div class="projects-grid">
+    <!-- Project 1 -->
+    <div class="project-card">
+      <h3>LLM Finetuning for Patient Routing</h3>
+      <p><strong>Clinical Decision Support with BioBERT</strong></p>
+      <p>Developed a patient triage service using BioBERT on AWS Bedrock + FastAPI, achieving 91.6% accuracy across 1,000+ clinical assessments. Optimized pipelines to reduce inference time from 16s to 5s using LangChain routing logic and response caching. Published in peer-reviewed biomedical journal.</p>
+      <p><a href="https://doi.org/10.1016/S0016-5085(25)04641-4" target="_blank">View Publication</a></p>
+    </div>
+    
+    <!-- Project 2 -->
+    <div class="project-card">
+      <h3>Agentic Workflow SDK</h3>
+      <p><strong>Reusable LangChain & MCP Components</strong></p>
+      <p>Established blueprint for AI Agent development by creating reusable SDK and Model Context Protocol (MCP) server components. Enabled 7 engineering teams to standardize agent development and reduce time-to-production by abstracting complex orchestration patterns.</p>
+      <p><a href="https://github.com/mister-raggs" target="_blank">View GitHub</a></p>
+    </div>
+    
+    <!-- Project 3 -->
+    <div class="project-card">
+      <h3>High-Throughput Document Processing Pipeline</h3>
+      <p><strong>Enterprise-Scale Automation</strong></p>
+      <p>Orchestrated a pipeline processing 3,000+ documents daily using Azure Queue Storage across a pool of Virtual Machines. Designed hybrid data layer delivering sub-100ms P95 latency by bridging MongoDB (rapid dev) with Cosmos DB (high performance serving).</p>
+      <p><a href="https://github.com/mister-raggs" target="_blank">View GitHub</a></p>
+    </div>
+  </div>
+</section>
 
 <!-- Latest posts -->
 {% if site.posts and site.posts.size > 0 %}
