@@ -361,12 +361,15 @@ img {
   border-left: 4px solid var(--accent);
   padding: 1.5rem;
   border-radius: 4px;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.2s ease;
   display: flex;
   flex-direction: column;
-  height: 302px;
+  min-height: 302px; /* base height */
   overflow: hidden;
   position: relative;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
 .project-card:hover {
@@ -389,31 +392,37 @@ img {
 /* Graceful truncation for descriptions */
 .project-card .description {
   display: -webkit-box;
-  -webkit-line-clamp: 4; /* number of lines to show */
+  -webkit-line-clamp: 4; /* base clamp */
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
 /* Hover overlay link */
-.project-link {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(44, 62, 80, 0.92); /* primary dark */
-  color: #fff;
-  text-align: center;
-  padding: 0.75rem 1rem;
-  text-decoration: none;
-  font-weight: 600;
-  opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 0.2s ease, transform 0.2s ease;
+/* Hover expansion + subtle indicator */
+.project-card:hover {
+  box-shadow: 0 6px 16px rgba(52, 152, 219, 0.18);
+  transform: translateY(-2px);
+  border-left-color: var(--accent-light);
 }
 
-.project-card:hover .project-link {
-  opacity: 1;
-  transform: translateY(0);
+.project-card:hover .description {
+  -webkit-line-clamp: unset;
+  overflow: visible;
+}
+
+.project-card::after {
+  content: "↗";
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  color: var(--accent);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  font-size: 1rem;
+}
+
+.project-card:hover::after {
+  opacity: 0.6;
 }
 
 .project-card strong {
