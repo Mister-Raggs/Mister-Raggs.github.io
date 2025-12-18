@@ -365,7 +365,7 @@ img {
   display: flex;
   flex-direction: column;
   min-height: 302px; /* base height */
-  overflow: hidden;
+  overflow: visible; /* allow expansion across browsers */
   position: relative;
   text-decoration: none;
   color: inherit;
@@ -406,8 +406,11 @@ img {
 }
 
 .project-card:hover .description {
-  -webkit-line-clamp: unset;
+  display: block;            /* break out of -webkit-box for Chrome */
+  -webkit-line-clamp: initial;
+  -webkit-box-orient: initial;
   overflow: visible;
+  white-space: normal;
 }
 
 .project-card::after {
