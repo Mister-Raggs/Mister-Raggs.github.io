@@ -66,9 +66,9 @@ author:
   avatar : "/assets/images/bio-photo.jpg"
   bio    : "Hungry to build better faster."
   links:
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      url: "/"
+    - label: "LeetCode"
+      icon: "fas fa-fw fa-code"
+      url: "https://leetcode.com/u/ragg04/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/mister-raggs"
