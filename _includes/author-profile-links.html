@@ -1,0 +1,15 @@
+{% if site.author.links %}
+  <nav class="author__urls">
+    {% for link in site.author.links %}
+      {% if link.icon %}
+        {% if link.icon == "custom-leetcode" %}
+          <a rel="nofollow noopener noreferrer me" href="{{ link.url }}" title="{{ link.label }}"><img src="/assets/icons/leetcode.svg" class="social-icon-leetcode" alt="{{ link.label }}" /> <span class="label">{{ link.label }}</span></a>
+        {% else %}
+          <a rel="nofollow noopener noreferrer me" href="{{ link.url }}" title="{{ link.label }}"><i class="{{ link.icon }}"></i> <span class="label">{{ link.label }}</span></a>
+        {% endif %}
+      {% else %}
+        <a rel="nofollow noopener noreferrer me" href="{{ link.url }}" title="{{ link.label }}">{{ link.label }}</a>
+      {% endif %}
+    {% endfor %}
+  </nav>
+{% endif %}
