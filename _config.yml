@@ -67,7 +67,7 @@ author:
   bio    : "Hungry to build better faster."
   links:
     - label: "LeetCode"
-      icon: "fas fa-fw fa-code"
+      icon: "custom-leetcode"
       url: "https://leetcode.com/u/ragg04/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
