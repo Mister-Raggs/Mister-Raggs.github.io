@@ -445,11 +445,3 @@ img {
   text-decoration: underline;
 }
 
-/* Custom LeetCode icon styling */
-.author__urls .social-icon-leetcode {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  vertical-align: middle;
-}
-
