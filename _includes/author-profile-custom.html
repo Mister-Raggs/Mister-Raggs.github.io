@@ -29,7 +29,11 @@
                 <li>
                   <a href="{{ link.url }}" itemprop="url" title="{{ link.label }}">
                     {% if link.icon %}
-                      <i class="{{ link.icon }}" aria-hidden="true"></i>
+                      {% if link.icon == "custom-leetcode" %}
+                        <img src="{{ '/assets/icons/leetcode.svg' | relative_url }}" class="social-icon-leetcode" alt="{{ link.label }}" />
+                      {% else %}
+                        <i class="{{ link.icon }}" aria-hidden="true"></i>
+                      {% endif %}
                     {% endif %}
                     {{ link.label }}
                   </a>
