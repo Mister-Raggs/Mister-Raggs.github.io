@@ -66,6 +66,9 @@ author:
   avatar : "/assets/images/bio-photo.jpg"
   bio    : "Hungry to build better faster."
   links:
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/raghavkachroo/"
     - label: "LeetCode"
       icon: "fas fa-fw fa-code"
       url: "https://leetcode.com/u/ragg04/"

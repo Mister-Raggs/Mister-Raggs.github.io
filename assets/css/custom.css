@@ -330,9 +330,20 @@ pre code {
   margin-bottom: 2rem;
 }
 
-/* Header overrides to match theme */
-.masthead,
-.masthead__inner-wrap,
+/* Header overrides to match theme + sticky positioning */
+.masthead {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--surface) !important;
+  border-bottom: 1px solid var(--border-color);
+}
+.masthead__inner-wrap {
+  background-color: var(--surface) !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .greedy-nav {
   background-color: var(--surface) !important;
   border-bottom: 1px solid var(--border-color);
@@ -441,27 +452,28 @@ img {
   color: var(--accent);
 }
 
-/* Theme toggle button */
+/* Theme toggle button (inline in header) */
 .theme-toggle {
-  position: fixed;
-  top: 16px;
-  right: 16px;
-  width: 36px;
-  height: 36px;
-  border-radius: 18px;
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
   border: 1px solid var(--border-color);
   background: var(--surface);
   color: var(--text-primary);
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  z-index: 2000;
+  margin-left: 12px;
+  transition: border-color 0.2s ease, color 0.2s ease;
 }
 .theme-toggle:hover {
   border-color: var(--accent);
   color: var(--accent);
+}
+.greedy-nav .visible-links {
+  display: flex;
+  align-items: center;
 }
 
 /* Projects Section */

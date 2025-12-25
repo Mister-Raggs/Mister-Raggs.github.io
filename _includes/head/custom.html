@@ -22,7 +22,12 @@
         localStorage.setItem(STORAGE_KEY, next);
         btn.textContent = next === 'dark' ? '☾' : '☀';
       });
-      document.body.appendChild(btn);
+      const masthead = document.querySelector('.greedy-nav .visible-links');
+      if (masthead) {
+        masthead.appendChild(btn);
+      } else {
+        document.body.appendChild(btn);
+      }
     }
 
     if (document.readyState === 'loading') {
