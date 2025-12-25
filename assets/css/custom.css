@@ -3,8 +3,8 @@
 /* Color scheme (light defaults); dark overrides via [data-theme="dark"] */
 :root {
   --primary: #2c3e50;
-  --accent: #3498db;
-  --accent-light: #5dade2;
+  --accent: #FFD166;
+  --accent-light: #FFE39A;
   --text-primary: #2c3e50;
   --text-secondary: #7f8c8d;
   --bg-light: #ecf0f1;
@@ -40,7 +40,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
-  color: var(--primary);
+  color: var(--text-primary);
   letter-spacing: -0.5px;
   margin-top: 1.5rem;
   margin-bottom: 1rem;
@@ -248,7 +248,7 @@ main {
 .post-list a {
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--primary);
+  color: var(--text-primary);
 }
 
 .post-list a:hover {
@@ -296,8 +296,25 @@ pre code {
   margin-bottom: 2rem;
 }
 
+/* Header overrides to match theme */
+.masthead,
+.masthead__inner-wrap,
+.greedy-nav {
+  background-color: var(--surface) !important;
+  border-bottom: 1px solid var(--border-color);
+}
+.greedy-nav a,
+.masthead a,
+.masthead .site-title {
+  color: var(--text-primary) !important;
+}
+.greedy-nav a:hover,
+.masthead a:hover {
+  color: var(--accent) !important;
+}
+
 .site-title {
-  color: var(--primary) !important;
+  color: var(--text-primary) !important;
   font-weight: 700;
   font-size: 1.5rem !important;
 }
@@ -376,6 +393,7 @@ img {
   justify-content: center;
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 2000;
 }
 .theme-toggle:hover {
   border-color: var(--accent);
@@ -418,7 +436,7 @@ img {
 
 .project-card h3 {
   margin-top: 0;
-  color: var(--primary);
+  color: var(--text-primary);
   font-size: 1.25rem;
 }
 
@@ -480,7 +498,7 @@ img {
 }
 
 .project-card a:hover {
-  color: var(--primary);
+  color: var(--accent);
   text-decoration: underline;
 }
 
