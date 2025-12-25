@@ -22,9 +22,10 @@
         localStorage.setItem(STORAGE_KEY, next);
         btn.textContent = next === 'dark' ? '☾' : '☀';
       });
-      const masthead = document.querySelector('.greedy-nav .visible-links');
-      if (masthead) {
-        masthead.appendChild(btn);
+      const mastheadInner = document.querySelector('.masthead__inner-wrap');
+      const siteTitle = document.querySelector('.site-title');
+      if (mastheadInner && siteTitle) {
+        siteTitle.insertAdjacentElement('afterend', btn);
       } else {
         document.body.appendChild(btn);
       }

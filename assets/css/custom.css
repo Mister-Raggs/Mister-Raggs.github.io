@@ -212,6 +212,13 @@ main {
   font-size: 0.9rem;
 }
 
+/* Force all social icons to Instagram blue for visibility */
+.author__urls i,
+.author__urls .fab,
+.author__urls .fas {
+  color: #3f729b !important;
+}
+
 /* Old author styles - keep for backwards compatibility but with lower priority */
 .author {
   display: flex;
