@@ -275,6 +275,20 @@ main {
   color: var(--accent);
 }
 
+/* Override minimal-mistakes archive item styling */
+.archive__item-title,
+.list__item .archive__item-title {
+  font-size: 1.1rem !important;
+  margin-top: 0.5rem;
+}
+
+.archive__item-excerpt,
+.list__item .archive__item-excerpt {
+  font-size: 1rem !important;
+  color: var(--text-secondary);
+  margin-top: 0.5rem;
+}
+
 .post-date {
   color: var(--text-secondary);
   font-size: 0.9rem;
