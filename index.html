@@ -4,6 +4,7 @@
 # See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 layout: home
 author_profile: true
+paginate: false
 ---
 <!-- Custom portfolio landing: shows a short intro and links to Resume and Blog -->
 
@@ -55,9 +56,17 @@ author_profile: true
 <h2>Latest posts</h2>
 <ul class="latest-posts">
 {% for post in site.posts limit:5 %}
-  <li>
-    <a href="{{ post.url }}">{{ post.title }}</a>
-    <span class="post-date"> — <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time></span>
+  <li class="latest-post-item">
+    <a href="{{ post.url }}" class="latest-post-title">{{ post.title }}</a>
+    <div class="latest-post-meta">
+      {% if post.read_time %}
+        <span class="read-time">{{ post.read_time }} min read</span>
+      {% endif %}
+      <span class="post-date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d, %Y" }}</time></span>
+    </div>
+    {% if post.excerpt %}
+      <p class="latest-post-excerpt">{{ post.excerpt | strip_html }}</p>
+    {% endif %}
   </li>
 {% endfor %}
 </ul>

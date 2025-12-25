@@ -437,22 +437,58 @@ img {
   border-bottom: none;
 }
 
-.latest-posts a {
+.latest-post-item {
+  margin-bottom: 1.5rem;
+}
+
+.latest-post-title {
   font-size: 1.35rem;
   font-weight: 600;
   color: var(--text-primary);
   text-decoration: none;
+  display: block;
+  margin-bottom: 0.4rem;
 }
 
-.latest-posts a:visited {
+.latest-post-title:visited {
   color: var(--text-primary);
 }
 
-.latest-posts a:hover {
+.latest-post-title:hover {
   color: var(--accent);
 }
 
-/* Theme toggle button (inline in header) */
+.latest-post-meta {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.read-time {
+  font-weight: 500;
+}
+
+.latest-post-excerpt {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0.5rem 0 0 0;
+}
+
+/* Hide the theme's recent posts section */
+.page__content > h1:nth-of-type(2),
+.page__content > .posts-list,
+.posts-list {
+  display: none;
+}
+
+/* Also hide any recent posts rendered by home layout */
+.page__content h2:contains("Recent Posts"),
+[data-archive-title] {
+  display: none;
+}
 .theme-toggle {
   width: 32px;
   height: 32px;
