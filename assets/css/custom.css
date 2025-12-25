@@ -1,6 +1,6 @@
 /* Professional Portfolio Enhancements */
 
-/* Color scheme for a polished look */
+/* Color scheme (light defaults); dark overrides via [data-theme="dark"] */
 :root {
   --primary: #2c3e50;
   --accent: #3498db;
@@ -10,12 +10,29 @@
   --bg-light: #ecf0f1;
   --border-color: #bdc3c7;
   --success: #27ae60;
+  --background: #ffffff;
+  --surface: #f9f9f9;
+}
+
+/* Dark theme: Space Gray Gold */
+[data-theme="dark"] {
+  --primary: #EAECEF;
+  --accent: #FFD166;
+  --accent-light: #FFE39A;
+  --text-primary: #EAECEF;
+  --text-secondary: #B8BDC6;
+  --bg-light: #2B3240;
+  --border-color: #2B3240;
+  --success: #2CCB8A;
+  --background: #1A1D23;
+  --surface: #20242C;
 }
 
 /* Typography - Professional and readable */
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
   color: var(--text-primary);
+  background-color: var(--background);
   line-height: 1.6;
   font-size: 16px;
   font-weight: 400;
@@ -125,11 +142,11 @@ main {
   height: 130px;
   padding: 5px;
   border-radius: 50%;
-  border: 1px solid #f2f3f3;
+  border: 1px solid var(--bg-light);
   display: flex;
   justify-content: center;
   align-items: center;
-  background: white;
+  background: var(--surface);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   flex-shrink: 0;
 }
@@ -256,8 +273,8 @@ code {
 }
 
 pre {
-  background-color: var(--primary);
-  color: #ecf0f1;
+  background-color: var(--surface);
+  color: var(--text-primary);
   padding: 1.25rem;
   border-radius: 8px;
   overflow-x: auto;
@@ -343,6 +360,28 @@ img {
   margin: 2rem 0;
 }
 
+/* Theme toggle button */
+.theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  border: 1px solid var(--border-color);
+  background: var(--surface);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
 /* Projects Section */
 .home-projects {
   margin: 3rem 0;
@@ -357,7 +396,7 @@ img {
 }
 
 .project-card {
-  background: #f9f9f9;
+  background: var(--surface);
   border-left: 4px solid var(--accent);
   padding: 1.5rem;
   border-radius: 4px;

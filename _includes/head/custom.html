@@ -1,6 +1,38 @@
 <!-- Load custom portfolio CSS -->
 <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
 
+<!-- Theme initialization + toggle -->
+<script>
+  (function() {
+    const STORAGE_KEY = 'theme';
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const saved = localStorage.getItem(STORAGE_KEY);
+    const initial = saved ? saved : (prefersDark ? 'dark' : 'dark');
+    document.documentElement.setAttribute('data-theme', initial);
+
+    function addToggle() {
+      const btn = document.createElement('button');
+      btn.className = 'theme-toggle';
+      btn.setAttribute('aria-label', 'Toggle theme');
+      btn.textContent = (document.documentElement.getAttribute('data-theme') === 'dark') ? '☾' : '☀';
+      btn.addEventListener('click', function() {
+        const current = document.documentElement.getAttribute('data-theme') || 'dark';
+        const next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem(STORAGE_KEY, next);
+        btn.textContent = next === 'dark' ? '☾' : '☀';
+      });
+      document.body.appendChild(btn);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', addToggle);
+    } else {
+      addToggle();
+    }
+  })();
+</script>
+
 <!-- Open PDF links in new tab -->
 <script>
   document.addEventListener('DOMContentLoaded', function() {
