@@ -83,10 +83,13 @@ a:hover {
   border-bottom-color: var(--accent);
 }
 
-/* Remove visited color differences */
+/* Remove visited color differences - keep same as normal link */
 a:visited {
-  color: var(--accent);
-  border-bottom-color: transparent;
+  color: inherit;
+}
+
+a:hover:visited {
+  color: var(--accent-light);
 }
 
 /* Buttons */
@@ -252,13 +255,20 @@ main {
 }
 
 .post-list a {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: var(--text-primary);
 }
 
 .post-list a:visited {
   color: var(--text-primary);
+}
+
+.post-list .post-meta,
+.post-list .post-excerpt {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
 }
 
 .post-list a:hover {
@@ -385,6 +395,36 @@ img {
   height: 1px;
   background-color: var(--bg-light);
   margin: 2rem 0;
+}
+
+/* Latest posts styling (homepage) */
+.latest-posts {
+  list-style: none;
+  padding: 0;
+}
+
+.latest-posts li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--bg-light);
+}
+
+.latest-posts li:last-child {
+  border-bottom: none;
+}
+
+.latest-posts a {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.latest-posts a:visited {
+  color: var(--text-primary);
+}
+
+.latest-posts a:hover {
+  color: var(--accent);
 }
 
 /* Theme toggle button */
