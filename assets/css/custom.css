@@ -3,8 +3,8 @@
 /* Color scheme (light defaults); dark overrides via [data-theme="dark"] */
 :root {
   --primary: #2c3e50;
-  --accent: #FFD166;
-  --accent-light: #FFE39A;
+  --accent: #7C4DFF;
+  --accent-light: #A58BFF;
   --text-primary: #2c3e50;
   --text-secondary: #7f8c8d;
   --bg-light: #ecf0f1;
@@ -14,18 +14,18 @@
   --surface: #f9f9f9;
 }
 
-/* Dark theme: Space Gray Gold */
+/* Dark theme: Slate Purple */
 [data-theme="dark"] {
-  --primary: #EAECEF;
-  --accent: #FFD166;
-  --accent-light: #FFE39A;
-  --text-primary: #EAECEF;
-  --text-secondary: #B8BDC6;
-  --bg-light: #2B3240;
-  --border-color: #2B3240;
+  --primary: #ECEAF6;
+  --accent: #7C4DFF;
+  --accent-light: #A58BFF;
+  --text-primary: #ECEAF6;
+  --text-secondary: #B9B7CB;
+  --bg-light: #2A2F3B;
+  --border-color: #2A2F3B;
   --success: #2CCB8A;
-  --background: #1A1D23;
-  --surface: #20242C;
+  --background: #111318;
+  --surface: #181B22;
 }
 
 /* Typography - Professional and readable */
@@ -81,6 +81,12 @@ a {
 a:hover {
   color: var(--accent-light);
   border-bottom-color: var(--accent);
+}
+
+/* Remove visited color differences */
+a:visited {
+  color: var(--accent);
+  border-bottom-color: transparent;
 }
 
 /* Buttons */
@@ -248,6 +254,10 @@ main {
 .post-list a {
   font-size: 1.25rem;
   font-weight: 600;
+  color: var(--text-primary);
+}
+
+.post-list a:visited {
   color: var(--text-primary);
 }
 
@@ -500,5 +510,9 @@ img {
 .project-card a:hover {
   color: var(--accent);
   text-decoration: underline;
+}
+
+.project-card a:visited {
+  color: var(--accent);
 }
 
