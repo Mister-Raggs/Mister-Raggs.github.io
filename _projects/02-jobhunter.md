@@ -1,15 +1,12 @@
 ---
-layout: project
+layout: page
 title: JobHunter
 date: 2024-06-01
-image: /assets/images/projects/jobhunter.jpg
 description: >
   End-to-end job search automation and analysis tool that scrapes, filters, and ranks opportunities using ML.
-links:
-  - title: GitHub
-    url: https://github.com/mister-raggs/JobHunter
-featured: false
 ---
+
+**[View on GitHub](https://github.com/mister-raggs/JobHunter)**
 
 ## Overview
 

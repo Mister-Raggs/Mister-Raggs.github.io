@@ -1,15 +1,12 @@
 ---
-layout: project
+layout: page
 title: PyTorch RAG
 date: 2024-03-15
-image: /assets/images/projects/pytorch-rag.jpg
 description: >
   Retrieval-Augmented Generation framework built with PyTorch for context-aware question answering.
-links:
-  - title: GitHub
-    url: https://github.com/mister-raggs/pytorch-rag
-featured: false
 ---
+
+**[View on GitHub](https://github.com/mister-raggs/pytorch-rag)**
 
 ## Overview
 
