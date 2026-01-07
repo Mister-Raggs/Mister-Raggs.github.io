@@ -21,8 +21,8 @@ description: >-
 url: https://raghavkachroo.dev
 baseurl: ""
 
-# Theme (using remote_theme for GitHub Pages compatibility)
-remote_theme: hydecorp/hydejack
+# Theme
+remote_theme: hydecorp/hydejack@v9.2.1
 
 # Build settings
 markdown: kramdown
@@ -38,18 +38,6 @@ timezone: America/Los_Angeles
 
 include:
   - _pages
-
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
 
 # Plugins
 plugins:
