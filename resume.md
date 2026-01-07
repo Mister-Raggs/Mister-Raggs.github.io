@@ -5,8 +5,8 @@ description: Raghav Kachroo's professional resume
 ---
 
 ## Raghav Kachroo
-**Email:** rkachroo@ucsd.edu  
-**GitHub:** [mister-raggs](https://github.com/mister-raggs)  
+**Email:** rkachroo@ucsd.edu
+**GitHub:** [mister-raggs](https://github.com/mister-raggs)
 **LinkedIn:** [raghavkachroo](https://www.linkedin.com/in/raghavkachroo/)
 
 ---
@@ -48,4 +48,8 @@ Developed BioBERT models and LLM fine-tuning work for clinical decision support.
 
 ---
 
-[Download Resume PDF](/assets/Raghav_Kachroo_resume.pdf){:.btn .btn-primary}
+<div style="text-align: center; margin: 2rem 0;">
+  <a href="/assets/Raghav_Kachroo_resume.pdf" target="_blank" rel="noopener" class="btn btn-primary" style="font-size: 1.2em; padding: 0.75rem 2rem;">
+    📄 Download Resume (PDF)
+  </a>
+</div>
