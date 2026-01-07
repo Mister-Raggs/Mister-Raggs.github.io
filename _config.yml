@@ -1,65 +1,22 @@
 # Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
 title: Raghav Kachroo
 tagline: Building better, faster.
 description: >-
   Software engineer interested in AI, backend systems, and full-stack development.
   Currently exploring LLMs, distributed systems, and high-performance computing.
-url: https://raghavkachroo.dev
-baseurl: ""
 
-# Theme
-remote_theme: hydecorp/hydejack@v9.2.1
+# Language
+lang: en
 
-# Build settings
-markdown: kramdown
-kramdown:
-  input: GFM
-  math_engine: mathjax
+# Keywords for SEO
+keywords: [AI, machine learning, software engineering, backend systems, LLM]
 
-# Outputting
-permalink: /:categories/:title/
-paginate: 10
-paginate_path: /blog/:num/
-timezone: America/Los_Angeles
+# Logo (optional but recommended for Hydejack)
+logo: /assets/images/logo.png
 
-include:
-  - _pages
-
-# Plugins
-plugins:
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-feed
-  - jemoji
-  - jekyll-include-cache
-
-# Collections
-collections:
-  featured_categories:
-    permalink: /:name/
-    output: true
-  featured_tags:
-    permalink: /tag-:name/
-    output: true
-  projects:
-    permalink: /projects/:path/
-    output: true
-
-# Author
+# Author configuration
 author:
   name: Raghav Kachroo
   email: rkachroo@ucsd.edu
@@ -74,6 +31,13 @@ author:
 
 # Hydejack
 hydejack:
+  # Configure the order of complementary content on blog posts
+  post_addons: [about, newsletter, related, random, comments]
+  
+  # Configure the order of complementary content on project pages
+  project_addons: [about, newsletter, other, comments]
+  
+  # Dark mode settings
   dark_mode:
     dynamic: true
     icon: true
@@ -107,3 +71,71 @@ defaults:
       type: pages
     values:
       layout: page
+
+# Markdown settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  math_engine: mathjax
+  footnote_backlink: "&#x21a9;&#xfe0e;"
+
+# Build settings
+permalink: /:categories/:title/
+paginate: 10
+paginate_path: /:num/
+timezone: America/Los_Angeles
+
+# Theme
+remote_theme: hydecorp/hydejack@v9.2.1
+
+# Plugins
+plugins:
+  - jekyll-default-layout
+  - jekyll-feed
+  - jekyll-optional-front-matter
+  - jekyll-paginate
+  - jekyll-readme-index
+  - jekyll-redirect-from
+  - jekyll-relative-links
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-titles-from-headings
+  - jekyll-include-cache
+  - jekyll-last-modified-at
+
+# Collections
+collections:
+  featured_categories:
+    permalink: /:name/
+    output: true
+  featured_tags:
+    permalink: /tag-:name/
+    output: true
+  projects:
+    permalink: /projects/:path/
+    output: true
+
+# Plugin configurations
+optional_front_matter:
+  remove_originals: true
+
+readme_index:
+  remove_originals: true
+  with_frontmatter: true
+
+relative_links:
+  collections: true
+
+titles_from_headings:
+  strip_title: true
+  collections: true
+
+compress_html:
+  comments: ["<!--", "-->"]
+  clippings: all
+  endings: all
+  ignore:
+    envs: [development]
+
+sass:
+  style: compressed
