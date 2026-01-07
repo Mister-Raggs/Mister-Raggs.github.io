@@ -14,28 +14,27 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Raghav Kachroo
-email:
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-twitter_username: username
-github_username: username
-minimal_mistakes_skin: default
-search: true
+tagline: Building better, faster.
+description: >-
+  Software engineer interested in AI, backend systems, and full-stack development.
+  Currently exploring LLMs, distributed systems, and high-performance computing.
+url: https://raghavkachroo.dev
+baseurl: ""
+
+# Theme (using remote_theme for GitHub Pages compatibility)
+remote_theme: hydecorp/hydejack
 
 # Build settings
 markdown: kramdown
 kramdown:
   input: GFM
-remote_theme: mmistakes/minimal-mistakes
-favicon: /assets/favicon.svg
-future: true
+  math_engine: mathjax
+
 # Outputting
 permalink: /:categories/:title/
-paginate: 5 # amount of posts to show
-paginate_path: /page:num/
-timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+paginate: 10
+paginate_path: /blog/:num/
+timezone: America/Los_Angeles
 
 include:
   - _pages
@@ -52,68 +51,71 @@ include:
 #   - vendor/gems/
 #   - vendor/ruby/
 
-# Plugins (previously gems:)
+# Plugins
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
-  - jekyll-gist
   - jekyll-feed
   - jemoji
   - jekyll-include-cache
 
+# Collections
+collections:
+  featured_categories:
+    permalink: /:name/
+    output: true
+  featured_tags:
+    permalink: /tag-:name/
+    output: true
+  projects:
+    permalink: /projects/:path/
+    output: true
+
+# Author
 author:
-  name   : "Raghav Kachroo"
-  avatar : "/assets/images/bio-photo.jpg"
-  bio    : "Hungry to build better faster."
-  links:
-    - label: "LinkedIn"
-      icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/raghavkachroo/"
-    - label: "LeetCode"
-      icon: "fas fa-fw fa-code"
-      url: "https://leetcode.com/u/ragg04/"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/mister-raggs"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/misteraggs"
+  name: Raghav Kachroo
+  email: rkachroo@ucsd.edu
+  about: |
+    Software engineer passionate about AI, backend systems, and full-stack development.
+    Currently exploring LLMs, distributed systems, and high-performance computing.
+  picture: /assets/images/bio-photo.jpg
+  social:
+    github: mister-raggs
+    linkedin: raghavkachroo
+    instagram: misteraggs
 
-footer:
-  links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/mister-raggs"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://instagram.com/misteraggs"
+# Hydejack
+hydejack:
+  dark_mode:
+    dynamic: true
+    icon: true
+    always: false
 
+# Menu
+menu:
+  - title: Blog
+    url: /blog/
+  - title: Projects
+    url: /projects/
+  - title: Resume
+    url: /resume/
+  - title: About
+    url: /about/
+
+# Defaults
 defaults:
-  # _posts
   - scope:
       path: ""
       type: posts
     values:
-      layout: single
-      author_profile: true
-      read_time: true
-      comments: true
-      share: true
-      related: true
-  # _pages
+      layout: post
+      excerpt_separator: <!-- more -->
   - scope:
-      path: "_pages"
+      path: "_projects"
+    values:
+      layout: project
+  - scope:
+      path: ""
       type: pages
     values:
-      layout: single
-      author_profile: true
-
-category_archive:
-  type: liquid
-  path: /categories/
-tag_archive:
-  type: liquid
-  path: /tags/
+      layout: page
