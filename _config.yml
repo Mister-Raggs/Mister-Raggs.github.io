@@ -29,6 +29,10 @@ author:
     linkedin: raghavkachroo
     instagram: misteraggs
 
+# Favicon and app icons
+favicon:        /assets/images/favicon.svg
+apple_touch_icon: /assets/images/favicon.svg
+
 # Hydejack
 hydejack:
   # Configure the order of complementary content on blog posts
@@ -49,8 +53,6 @@ menu:
     url: /blog/
   - title: Projects
     url: /projects/
-  - title: Resume
-    url: /resume/
   - title: About
     url: /about/
 
