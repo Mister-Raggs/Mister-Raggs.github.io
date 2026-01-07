@@ -11,7 +11,7 @@ en: &anchor
   continue_reading: "Continue reading"
   read_more: "Read more"
   related_posts: "Related Posts"
-  redirect_notice: "You will be redirected, please click <a href="%s">here</a> if not."
+  redirect_notice: 'You will be redirected, please click <a href="%s">here</a> if not.'
   categories: "Categories:"
   category_start_html: '<span class="faded">in </span>'
   tags: "Tags:"
