@@ -33,10 +33,10 @@ author:
 hydejack:
   # Configure the order of complementary content on blog posts
   post_addons: [about, newsletter, related, random, comments]
-  
+
   # Configure the order of complementary content on project pages
   project_addons: [about, newsletter, other, comments]
-  
+
   # Dark mode settings
   dark_mode:
     dynamic: true
@@ -76,7 +76,8 @@ defaults:
 markdown: kramdown
 kramdown:
   input: GFM
-  math_engine: mathjax
+  math_engine: katex
+  math_engine_opts: {}
   footnote_backlink: "&#x21a9;&#xfe0e;"
 
 # Build settings
@@ -85,8 +86,8 @@ paginate: 10
 paginate_path: /:num/
 timezone: America/Los_Angeles
 
-# Theme
-remote_theme: hydecorp/hydejack@v9.2.1
+# Theme - Using the gem version for better GitHub Pages compatibility
+theme: jekyll-theme-hydejack
 
 # Plugins
 plugins:
