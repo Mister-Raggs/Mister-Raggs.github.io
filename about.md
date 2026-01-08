@@ -5,7 +5,7 @@ title: About
 
 <div style="text-align: center; margin: 2rem 0;">
   <a href="/assets/Raghav_Kachroo_resume.pdf" target="_blank" rel="noopener" class="btn btn-primary" style="font-size: 1.2em; padding: 0.75rem 2rem;">
-    📄 Download Full Resume (PDF)
+    📄 View My Resume (PDF)
   </a>
 </div>
 
