@@ -1,7 +1,7 @@
 ---
-layout: page
+layout: about
 title: About
-permalink: /about/
+permalink: /
 ---
 
 <div style="text-align: center; margin: 2rem 0;">

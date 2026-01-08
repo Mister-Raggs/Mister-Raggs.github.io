@@ -54,7 +54,7 @@ hydejack:
 # Menu
 menu:
   - title: About
-    url: /about/
+    url: /
   - title: Projects
     url: /projects/
   - title: Blog
