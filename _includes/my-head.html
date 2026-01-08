@@ -1,0 +1,6 @@
+<!-- Clear the drawer hash on page load to ensure drawer starts closed -->
+<script>
+  if (window.location.hash === '#_drawer--opened') {
+    history.replaceState(null, null, window.location.pathname);
+  }
+</script>
