@@ -53,12 +53,12 @@ hydejack:
 
 # Menu
 menu:
-  - title: Blog
-    url: /blog/
-  - title: Projects
-    url: /projects/
   - title: About
     url: /about/
+  - title: Projects
+    url: /projects/
+  - title: Blog
+    url: /blog/
 
 # Defaults
 defaults:

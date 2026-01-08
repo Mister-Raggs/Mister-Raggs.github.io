@@ -1,5 +1,5 @@
 ---
-layout: about
+layout: page
 title: About
 permalink: /about/
 ---
@@ -13,8 +13,6 @@ permalink: /about/
 ## Hi, I'm Raghav 👋
 
 I'm a software engineer passionate about building efficient, scalable systems at the intersection of AI, backend systems, and full-stack development.
-
-<!--author-->
 
 ## Experience
 
