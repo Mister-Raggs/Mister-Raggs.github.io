@@ -49,3 +49,33 @@
     });
   });
 </script>
+
+<!-- Make the drawer's "Home" behavior go to About -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const aboutUrl = "{{ '/about/' | relative_url }}";
+    const homeUrl = "{{ '/' | relative_url }}";
+
+    // 1) Sidebar avatar/logo usually links to home — point it to About.
+    const avatarImg = document.querySelector('img.avatar');
+    if (avatarImg) {
+      const avatarLink = avatarImg.closest('a');
+      if (avatarLink && avatarLink.getAttribute('href')) {
+        avatarLink.setAttribute('href', aboutUrl);
+      }
+    }
+
+    // 2) If a literal "Home" item appears in the drawer menu, remove it.
+    const drawer = document.querySelector('hy-drawer') || document;
+    const menuLinks = drawer.querySelectorAll('a[href]');
+    for (const a of menuLinks) {
+      const text = (a.textContent || '').trim().toLowerCase();
+      const href = a.getAttribute('href');
+      if (text === 'home' && (href === '/' || href === homeUrl)) {
+        const li = a.closest('li');
+        if (li) li.remove();
+        else a.remove();
+      }
+    }
+  });
+</script>
