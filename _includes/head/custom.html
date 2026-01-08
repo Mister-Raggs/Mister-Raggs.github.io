@@ -55,6 +55,7 @@
   document.addEventListener('DOMContentLoaded', function() {
     const aboutUrl = "{{ '/about/' | relative_url }}";
     const homeUrl = "{{ '/' | relative_url }}";
+    const origin = window.location.origin;
 
     // 1) Sidebar avatar/logo usually links to home — point it to About.
     const avatarImg = document.querySelector('img.avatar');
@@ -65,13 +66,33 @@
       }
     }
 
+    // Sidebar/site title usually links to home — point it to About.
+    const siteTitleLink = document.querySelector('a.site-title');
+    if (siteTitleLink && siteTitleLink.getAttribute('href')) {
+      siteTitleLink.setAttribute('href', aboutUrl);
+    }
+
     // 2) If a literal "Home" item appears in the drawer menu, remove it.
     const drawer = document.querySelector('hy-drawer') || document;
     const menuLinks = drawer.querySelectorAll('a[href]');
     for (const a of menuLinks) {
       const text = (a.textContent || '').trim().toLowerCase();
-      const href = a.getAttribute('href');
-      if (text === 'home' && (href === '/' || href === homeUrl)) {
+      const href = a.getAttribute('href') || '';
+      const normalizedHref = href.startsWith('http') ? href : (origin + href);
+
+      // If the drawer header contains a home link ("/"), rewrite it to About.
+      if (
+        a.classList.contains('site-title') ||
+        a.querySelector('img.avatar') ||
+        a.classList.contains('avatar')
+      ) {
+        if (href === '/' || href === homeUrl || normalizedHref === origin + '/' || normalizedHref === origin + homeUrl) {
+          a.setAttribute('href', aboutUrl);
+        }
+        continue;
+      }
+
+      if (text === 'home' && (href === '/' || href === homeUrl || normalizedHref === origin + '/' || normalizedHref === origin + homeUrl)) {
         const li = a.closest('li');
         if (li) li.remove();
         else a.remove();
