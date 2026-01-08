@@ -17,8 +17,8 @@ lang: en
 # Keywords for SEO
 keywords: [AI, machine learning, software engineering, backend systems, LLM]
 
-# Logo (optional but recommended for Hydejack)
-logo: /assets/images/logo.png
+# Logo (used by Hydejack for avatar/logo)
+logo: /assets/images/bio-photo.jpg
 
 # Author configuration
 author:
