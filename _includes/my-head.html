@@ -1,7 +1,18 @@
-<!-- Force sidebar to stay closed on page reload -->
+<!-- Force sidebar to always start closed (Cover Page) on reload -->
 <script>
-  if (window.location.hash === '#_drawer--opened') {
-    history.replaceState(null, null, window.location.pathname + window.location.search);
+  // 1. Clear the "closedOnce" flag from history state that Hydejack uses to remember if Cover was dismissed
+  if (history.state && history.state.closedOnce) {
+    const newState = { ...history.state };
+    delete newState.closedOnce;
+    history.replaceState(newState, document.title);
+  }
+
+  // 2. Force scroll to top because Hydejack also creates the Cover only if scrollTop <= 0
+  window.scrollTo(0, 0);
+
+  // 3. Prevent browser from restoring scroll position automatically
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
   }
 </script>
 
