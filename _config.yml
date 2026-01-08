@@ -7,6 +7,10 @@ description: >-
   Software engineer interested in AI, backend systems, and full-stack development.
   Currently exploring LLMs, distributed systems, and high-performance computing.
 
+# URL settings
+url: https://mister-raggs.github.io
+baseurl: ""
+
 # Language
 lang: en
 
