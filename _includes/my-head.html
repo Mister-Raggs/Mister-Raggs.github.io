@@ -1,40 +1,77 @@
 <!-- Force sidebar to always start closed (Cover Page) on reload -->
 <script>
   (function() {
+    // Debug helper
+    var debug = true;
+    function log(msg) { if(debug) console.log('[CoverFix] ' + msg); }
+
+    log('Initializing Cover Page fix...');
+
     // 1. Force manual scroll restoration immediately
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
     }
 
     // 2. Clear the "closedOnce" flag from history state
-    // Hydejack uses this flag to remember if the user has already seen/dismissed the cover.
-    if (history.state && history.state.closedOnce) {
-      var newState = Object.assign({}, history.state);
-      delete newState.closedOnce;
-      history.replaceState(newState, document.title);
+    function clearClosedOnce() {
+      if (history.state && history.state.closedOnce) {
+        log('Found closedOnce in state. Removing...');
+        try {
+          var newState = Object.assign({}, history.state);
+          delete newState.closedOnce;
+          history.replaceState(newState, document.title);
+          log('closedOnce removed.');
+        } catch (e) {
+          log('Error clearing state: ' + e);
+        }
+      }
     }
+    clearClosedOnce();
 
-    // 3. Aggressively force scroll to top
-    // Hydejack checks window.scrollY or scrollTop; if > 0, it dismisses the cover.
-    // We force it to 0 repeatedly during load to fight any browser auto-restoration.
-    window.scrollTo(0, 0);
-
-    var forceScroll = function() {
-      if (window.scrollY !== 0) window.scrollTo(0, 0);
+    // 3. Intercept history.replaceState and pushState
+    // This blocks Hydejack from saving the "closedOnce" flag in the first place
+    var originalReplaceState = history.replaceState;
+    history.replaceState = function(state, title, url) {
+      if (state && typeof state === 'object' && state.closedOnce) {
+        log('Intercepted replaceState setting closedOnce. Stripping it.');
+        var s = Object.assign({}, state);
+        delete s.closedOnce;
+        return originalReplaceState.call(history, s, title, url);
+      }
+      return originalReplaceState.apply(history, arguments);
     };
 
-    // Check every frame for the first ~500ms
+    var originalPushState = history.pushState;
+    history.pushState = function(state, title, url) {
+      if (state && typeof state === 'object' && state.closedOnce) {
+        log('Intercepted pushState setting closedOnce. Stripping it.');
+        var s = Object.assign({}, state);
+        delete s.closedOnce;
+        return originalPushState.call(history, s, title, url);
+      }
+      return originalPushState.apply(history, arguments);
+    };
+
+    // 4. Aggressively force scroll to top
+    // Run for approx 2 seconds (120 frames) to be absolutely sure
     var count = 0;
-    var loop = function() {
-      forceScroll();
-      if (count++ < 30) requestAnimationFrame(loop);
+    var forceScroll = function() {
+      if (window.scrollY !== 0) {
+        window.scrollTo(0, 0);
+      }
+      if (count++ < 120) {
+        requestAnimationFrame(forceScroll);
+      }
     };
-    requestAnimationFrame(loop);
+    requestAnimationFrame(forceScroll);
 
-    // Also force on unload to ensure next load starts clean
+    // 5. Cleanup on unload to ensure next load starts clean
     window.addEventListener('beforeunload', function() {
+      clearClosedOnce();
       window.scrollTo(0, 0);
     });
+
+    log('Fix setup complete.');
   })();
 </script>
 
