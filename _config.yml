@@ -69,9 +69,10 @@ defaults:
       layout: post
       excerpt_separator: <!-- more -->
   - scope:
-      path: "_projects"
+      path: ""
+      type: projects
     values:
-      layout: project
+      layout: page
   - scope:
       path: ""
       type: pages
@@ -90,6 +91,7 @@ kramdown:
 permalink: /:categories/:title/
 paginate: 10
 paginate_path: /:num/
+future: true
 timezone: America/Los_Angeles
 
 # Theme - Using remote_theme for GitHub Pages

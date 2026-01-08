@@ -1,9 +1,7 @@
 main:
   - title: "Blog"
-    url: /posts/
-  - title: "Categories"
-    url: /categories/
-  - title: "Tags"
-    url: /tags/
-  - title: "Resume"
-    url: /assets/Raghav_Kachroo_resume.pdf
+    url: /blog/
+  - title: "Projects"
+    url: /projects/
+  - title: "About"
+    url: /about/

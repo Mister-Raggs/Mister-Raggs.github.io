@@ -110,6 +110,16 @@ a:hover:visited {
   text-transform: uppercase;
 }
 
+.btn.btn-resume {
+  border-width: 3px;
+  padding: 14px 34px;
+  font-size: 1.05rem;
+}
+
+.btn.btn-resume:hover {
+  box-shadow: 0 6px 18px rgba(52, 152, 219, 0.35);
+}
+
 .btn:hover {
   background-color: var(--accent-light);
   border-color: var(--accent-light);

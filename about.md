@@ -1,11 +1,12 @@
 ---
 layout: about
 title: About
+permalink: /about/
 ---
 
 <div style="text-align: center; margin: 2rem 0;">
-  <a href="/assets/Raghav_Kachroo_resume.pdf" target="_blank" rel="noopener" class="btn btn-primary" style="font-size: 1.2em; padding: 0.75rem 2rem;">
-    📄 View My Resume (PDF)
+  <a href="/assets/Raghav_Kachroo_resume.pdf" target="_blank" rel="noopener" class="btn btn-resume no-push-state">
+    View My Resume (PDF)
   </a>
 </div>
 
@@ -42,6 +43,7 @@ Developed BioBERT models and LLM fine-tuning work for clinical decision support.
 -->
 
 ## Skills
+permalink: /about/
 
 - **AI/ML:** LLMs, RAG, Fine-tuning, BioBERT
 - **Backend:** Python, FastAPI, Microservices

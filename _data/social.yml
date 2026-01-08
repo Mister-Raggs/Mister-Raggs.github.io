@@ -1,11 +1,19 @@
-- name: GitHub
-  url: https://github.com/
+github:
+  name: GitHub
+  icon: icon-github
+  prepend: https://github.com/
 
-- name: LinkedIn
-  url: https://www.linkedin.com/in/
+linkedin:
+  name: LinkedIn
+  icon: icon-linkedin2
+  prepend: https://www.linkedin.com/in/
 
-- name: Instagram
-  url: https://instagram.com/
+instagram:
+  name: Instagram
+  icon: icon-instagram
+  prepend: https://instagram.com/
 
-- name: Email
-  url: "mailto:%s"
+email:
+  name: Email
+  icon: icon-mail
+  prepend: "mailto:"
