@@ -65,6 +65,24 @@
     };
     requestAnimationFrame(forceScroll);
 
+    // 6. As soon as the drawer exists, force it closed once (belt-and-suspenders)
+    var ensureDrawerClosed = function() {
+      var drawer = document.getElementById('_drawer');
+      if (!drawer) {
+        requestAnimationFrame(ensureDrawerClosed);
+        return;
+      }
+
+      try {
+        drawer.removeAttribute('opened');
+        if (typeof drawer.close === 'function') drawer.close();
+        log('Forced drawer closed at startup.');
+      } catch (e) {
+        log('Error forcing drawer closed: ' + e);
+      }
+    };
+    requestAnimationFrame(ensureDrawerClosed);
+
     // 5. Cleanup on unload to ensure next load starts clean
     window.addEventListener('beforeunload', function() {
       clearClosedOnce();
