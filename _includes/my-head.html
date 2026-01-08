@@ -4,3 +4,46 @@
     history.replaceState(null, null, window.location.pathname);
   }
 </script>
+
+<!-- Make sidebar drawer-based on all screens (hidden by default, shown on hamburger click) -->
+<style>
+  /* Override default behavior: sidebar is hidden by default on desktop too */
+  @media screen and (min-width: 64em) {
+    /* Remove fixed positioning - let drawer handle it */
+    hy-drawer {
+      position: relative !important;
+      width: 100% !important;
+    }
+    
+    /* Remove left margin from content since sidebar won't be fixed */
+    .content {
+      margin-left: auto !important;
+    }
+    
+    /* Hide the sidebar background bar */
+    body::before {
+      display: none !important;
+    }
+  }
+  
+  @media screen and (min-width: 86em) {
+    .content {
+      margin-left: auto !important;
+    }
+  }
+  
+  @media screen and (min-width: 104rem) {
+    .content {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    
+    body::before {
+      display: none !important;
+    }
+    
+    hy-drawer {
+      width: 100% !important;
+    }
+  }
+</style>
