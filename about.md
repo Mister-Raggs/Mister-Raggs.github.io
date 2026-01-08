@@ -3,6 +3,12 @@ layout: about
 title: About
 ---
 
+<div style="text-align: center; margin: 2rem 0;">
+  <a href="/assets/Raghav_Kachroo_resume.pdf" target="_blank" rel="noopener" class="btn btn-primary" style="font-size: 1.2em; padding: 0.75rem 2rem;">
+    📄 Download Full Resume (PDF)
+  </a>
+</div>
+
 ## Hi, I'm Raghav 👋
 
 I'm a software engineer passionate about building efficient, scalable systems at the intersection of AI, backend systems, and full-stack development.
@@ -48,11 +54,3 @@ Developed BioBERT models and LLM fine-tuning work for clinical decision support.
 - Distributed Systems
 - High-Performance Computing
 - Backend Infrastructure
-
----
-
-<div style="text-align: center; margin: 2rem 0;">
-  <a href="/assets/Raghav_Kachroo_resume.pdf" target="_blank" rel="noopener" class="btn btn-primary" style="font-size: 1.2em; padding: 0.75rem 2rem;">
-    📄 Download Full Resume (PDF)
-  </a>
-</div>
