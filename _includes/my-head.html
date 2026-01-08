@@ -1,2 +1,7 @@
-<!-- Custom head scripts cleared -->
+<!-- Force sidebar to stay closed on page reload -->
+<script>
+  if (window.location.hash === '#_drawer--opened') {
+    history.replaceState(null, null, window.location.pathname + window.location.search);
+  }
+</script>
 
