@@ -2,6 +2,8 @@
 layout: page
 title: About
 permalink: /
+cover: true
+accent_image: /assets/images/mountain.jpg
 ---
 
 <div style="text-align: center; margin: 2rem 0;">
