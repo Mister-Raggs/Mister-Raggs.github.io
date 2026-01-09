@@ -17,3 +17,8 @@ email:
   name: Email
   icon: icon-mail
   prepend: "mailto:"
+
+resume:
+  name: Resume
+  icon: icon-file-text
+  prepend: ""
