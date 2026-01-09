@@ -38,6 +38,13 @@ body {
   font-weight: 400;
 }
 
+/* Lock a single background image across all pages */
+.sidebar-bg {
+  background-image: url('/assets/images/mountain.jpg') !important;
+  background-size: cover;
+  background-position: center;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   color: var(--text-primary);
@@ -108,6 +115,29 @@ a:hover:visited {
   box-shadow: 0 2px 8px rgba(52, 152, 219, 0.15);
   letter-spacing: 0.5px;
   text-transform: uppercase;
+}
+
+/* High-contrast CTA buttons (resume/contact) */
+.btn.btn-resume,
+.btn.btn-contact {
+  background: linear-gradient(135deg, #7C4DFF 0%, #5B2EFF 100%);
+  border-color: #3d1fbf;
+  box-shadow: 0 8px 30px rgba(92, 56, 255, 0.35), 0 0 0 2px rgba(255, 255, 255, 0.08);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.btn.btn-resume:hover,
+.btn.btn-contact:hover {
+  background: linear-gradient(135deg, #8b63ff 0%, #6a3cff 100%);
+  border-color: #3d1fbf;
+  box-shadow: 0 10px 34px rgba(92, 56, 255, 0.42), 0 0 0 3px rgba(124, 77, 255, 0.25);
+}
+
+.btn.btn-resume:focus,
+.btn.btn-contact:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(124, 77, 255, 0.35), 0 8px 30px rgba(92, 56, 255, 0.3);
 }
 
 .btn.btn-resume {
