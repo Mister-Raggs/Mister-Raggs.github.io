@@ -144,23 +144,6 @@ a:hover:visited {
   box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.3), 0 6px 18px rgba(30, 136, 229, 0.2);
 }
 
-/* Resume icon styling in hero/social row */
-.resume-icon-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-.icon-resume {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.2rem;
-  height: 1.2rem;
-  font-size: 1rem;
-  line-height: 1;
-}
-
 @keyframes resume-outline-pulse {
   0% { box-shadow: 0 0 0 2px rgba(30, 136, 229, 0.14); }
   50% { box-shadow: 0 0 0 5px rgba(30, 136, 229, 0.25); }
