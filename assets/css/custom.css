@@ -117,30 +117,31 @@ a:hover:visited {
   text-transform: uppercase;
 }
 
-/* High-contrast CTA buttons (resume/contact) */
+/* Resume/Contact CTA: simple blue outline */
 .btn.btn-resume,
 .btn.btn-contact {
-  background: linear-gradient(135deg, #7C4DFF 0%, #5B2EFF 100%);
-  border-color: #3d1fbf;
-  box-shadow: 0 8px 30px rgba(92, 56, 255, 0.35), 0 0 0 2px rgba(255, 255, 255, 0.08);
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-  animation: resume-pulse 2.8s ease-in-out infinite;
+  background: transparent;
+  color: #1e88e5 !important;
+  border: 2px solid #1e88e5;
+  box-shadow: 0 0 0 2px rgba(30, 136, 229, 0.14);
+  letter-spacing: 0.5px;
+  text-transform: none;
+  animation: resume-outline-pulse 2.8s ease-in-out infinite;
   transform: translateY(0);
 }
 
 .btn.btn-resume:hover,
 .btn.btn-contact:hover {
-  background: linear-gradient(135deg, #8b63ff 0%, #6a3cff 100%);
-  border-color: #3d1fbf;
-  box-shadow: 0 10px 34px rgba(92, 56, 255, 0.42), 0 0 0 3px rgba(124, 77, 255, 0.25);
-  transform: translateY(-3px) scale(1.015);
+  background: rgba(30, 136, 229, 0.08);
+  border-color: #1e88e5;
+  box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.22);
+  transform: translateY(-2px);
 }
 
 .btn.btn-resume:focus,
 .btn.btn-contact:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(124, 77, 255, 0.35), 0 8px 30px rgba(92, 56, 255, 0.3);
+  box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.3), 0 6px 18px rgba(30, 136, 229, 0.2);
 }
 
 /* Resume icon styling in hero/social row */
@@ -154,16 +155,16 @@ a:hover:visited {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 1.25rem;
-  height: 1.25rem;
-  font-size: 1.05rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  font-size: 1rem;
   line-height: 1;
 }
 
-@keyframes resume-pulse {
-  0% { box-shadow: 0 8px 30px rgba(92, 56, 255, 0.35), 0 0 0 2px rgba(124, 77, 255, 0.18); }
-  50% { box-shadow: 0 10px 36px rgba(92, 56, 255, 0.48), 0 0 0 5px rgba(124, 77, 255, 0.28); }
-  100% { box-shadow: 0 8px 30px rgba(92, 56, 255, 0.35), 0 0 0 2px rgba(124, 77, 255, 0.18); }
+@keyframes resume-outline-pulse {
+  0% { box-shadow: 0 0 0 2px rgba(30, 136, 229, 0.14); }
+  50% { box-shadow: 0 0 0 5px rgba(30, 136, 229, 0.25); }
+  100% { box-shadow: 0 0 0 2px rgba(30, 136, 229, 0.14); }
 }
 
 .btn.btn-resume {
@@ -185,6 +186,33 @@ a:hover:visited {
 
 .btn:active {
   transform: translateY(0);
+}
+
+/* Ensure resume/contact CTA keeps blue-outline style (override generic .btn:hover styles) */
+.btn.btn-resume,
+.btn.btn-contact {
+  background: transparent;
+  color: #1e88e5 !important;
+  border: 2px solid #1e88e5;
+  box-shadow: 0 0 0 2px rgba(30, 136, 229, 0.14);
+  letter-spacing: 0.5px;
+  text-transform: none;
+  animation: resume-outline-pulse 2.8s ease-in-out infinite;
+}
+
+.btn.btn-resume:hover,
+.btn.btn-contact:hover {
+  background: rgba(30, 136, 229, 0.08) !important;
+  border-color: #1e88e5 !important;
+  color: #1e88e5 !important;
+  box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.22);
+  transform: translateY(-2px);
+}
+
+.btn.btn-resume:focus,
+.btn.btn-contact:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.3), 0 6px 18px rgba(30, 136, 229, 0.2);
 }
 
 .btn-outline {
