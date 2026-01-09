@@ -126,6 +126,7 @@ a:hover:visited {
   letter-spacing: 0.8px;
   text-transform: uppercase;
   animation: resume-pulse 2.8s ease-in-out infinite;
+  transform: translateY(0);
 }
 
 .btn.btn-resume:hover,
@@ -133,12 +134,30 @@ a:hover:visited {
   background: linear-gradient(135deg, #8b63ff 0%, #6a3cff 100%);
   border-color: #3d1fbf;
   box-shadow: 0 10px 34px rgba(92, 56, 255, 0.42), 0 0 0 3px rgba(124, 77, 255, 0.25);
+  transform: translateY(-3px) scale(1.015);
 }
 
 .btn.btn-resume:focus,
 .btn.btn-contact:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(124, 77, 255, 0.35), 0 8px 30px rgba(92, 56, 255, 0.3);
+}
+
+/* Resume icon styling in hero/social row */
+.resume-icon-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.icon-resume {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  font-size: 1.05rem;
+  line-height: 1;
 }
 
 @keyframes resume-pulse {

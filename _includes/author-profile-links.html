@@ -2,7 +2,12 @@
   <nav class="author__urls">
     {% for link in site.author.links %}
       {% if link.icon %}
-        {% if link.icon == "custom-leetcode" %}
+        {% if link.icon == "custom-resume" %}
+          <a rel="nofollow noopener noreferrer me" href="{{ link.url }}" title="{{ link.label }}" class="resume-icon-link">
+            <span class="icon-resume" aria-hidden="true">⬇️</span>
+            <span class="label">{{ link.label }}</span>
+          </a>
+        {% elsif link.icon == "custom-leetcode" %}
           <a rel="nofollow noopener noreferrer me" href="{{ link.url }}" title="{{ link.label }}"><img src="{{ '/assets/icons/leetcode.svg' | relative_url }}" class="social-icon-leetcode" alt="{{ link.label }}" /> <span class="label">{{ link.label }}</span></a>
         {% else %}
           <a rel="nofollow noopener noreferrer me" href="{{ link.url }}" title="{{ link.label }}"><i class="{{ link.icon }}"></i> <span class="label">{{ link.label }}</span></a>
