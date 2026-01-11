@@ -1,7 +1,7 @@
 ---
 layout: page
 title: JobHunter
-date: 2024-06-01
+date: 2023-06-01
 description: >
   End-to-end job search automation and analysis tool that scrapes, filters, and ranks opportunities using ML.
 ---

@@ -1,10 +1,9 @@
 ---
 layout: page
-title: Autonomous LLM Agent for Cloud GPU Orchestration
-date: 2025-01-11
+title: Smart GPU Rental Agent
+date: 2023-01-01
 description: >
-  LLM-driven autonomous agent that orchestrates multi-step GPU rental workflows with vendor selection,
-  payment handling, job monitoring, and automatic failure recovery using MongoDB durable state.
+  AI agent that automatically finds, rents, and manages cloud GPUs across multiple vendors with intelligent failure recovery.
 ---
 
 **[View on GitHub](https://github.com/Mister-Raggs/agentic-gpu-renter)**

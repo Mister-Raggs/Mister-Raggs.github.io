@@ -1,7 +1,7 @@
 ---
 layout: page
 title: PyTorch RAG
-date: 2024-03-15
+date: 2025-03-15
 description: >
   Retrieval-Augmented Generation framework built with PyTorch for context-aware question answering.
 ---
