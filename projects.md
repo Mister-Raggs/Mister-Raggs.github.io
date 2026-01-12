@@ -7,7 +7,8 @@ permalink: /projects/
 
 ## Featured Projects
 
-{% for project in site.projects %}
+{% assign sorted_projects = site.projects | sort: 'date' | reverse %}
+{% for project in sorted_projects %}
 ### [{{ project.title }}]({{ project.url | relative_url }})
 
 {{ project.description }}

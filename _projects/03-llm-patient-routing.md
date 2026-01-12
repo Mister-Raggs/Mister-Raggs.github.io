@@ -1,7 +1,7 @@
 ---
 layout: page
 title: LLM Finetuning for Patient Routing
-date: 2024-01-01
+date: 2025-09-10
 description: >
   Clinical decision support system using BioBERT fine-tuning with AWS Bedrock and FastAPI.
   Achieved 91.6% accuracy across 1,000+ assessments with optimized inference.

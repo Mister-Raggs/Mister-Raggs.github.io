@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Smart GPU Rental Agent
-date: 2023-01-01
+date: 2026-01-10
 description: >
   AI agent that automatically finds, rents, and manages cloud GPUs across multiple vendors with intelligent failure recovery.
 ---
