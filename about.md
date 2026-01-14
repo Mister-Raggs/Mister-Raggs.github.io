@@ -14,7 +14,7 @@ accent_image: /assets/images/mountain.jpg
 
 ## Hi, I'm Raghav 👋
 
-I love problem-solving and I'm excited to build robust, efficient ML and AI systems. My focus is on creating scalable solutions that bridge AI capabilities with production-ready infrastructure.
+I like solving problems and I'm excited to explore how to build ML systems that deliver more with less.
 
 ## Experience
 
