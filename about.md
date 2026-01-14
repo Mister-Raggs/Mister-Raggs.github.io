@@ -14,7 +14,7 @@ accent_image: /assets/images/mountain.jpg
 
 ## Hi, I'm Raghav 👋
 
-I'm a software engineer passionate about building efficient, scalable systems at the intersection of AI, backend systems, and full-stack development.
+I love problem-solving and I'm excited to build robust, efficient ML and AI systems. My focus is on creating scalable solutions that bridge AI capabilities with production-ready infrastructure.
 
 ## Experience
 
@@ -43,7 +43,6 @@ Developed BioBERT models and LLM fine-tuning work for clinical decision support.
 -->
 
 ## Skills
-permalink: /about/
 
 - **AI/ML:** LLMs, RAG, Fine-tuning, BioBERT
 - **Backend:** Python, FastAPI, Microservices
