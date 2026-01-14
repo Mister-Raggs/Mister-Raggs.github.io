@@ -18,16 +18,16 @@ I'm a software engineer with ~3 years of experience building production systems 
 
 ## Experience
 
-### Amazon ![Amazon](/assets/images/logos/amazon-logo.png){:.inline-logo}
+### Amazon
 Built incident-resolution tooling and a fast log search microservice; integrated log retrieval into developer chat workflows.
 
-### UC San Diego ![UC San Diego](/assets/images/logos/ucsd-logo.jpeg){:.inline-logo}
+### UC San Diego
 Designed hands-on assignments covering RAG pipelines, multi-agent orchestration, and LLM fine-tuning.
 
-### AARK Global ![AARK Global](/assets/images/logos/aark-logo.jpeg){:.inline-logo}
+### AARK Global
 Orchestrated high-throughput document pipelines and built conversational AI over indexed data.
 
-### Concentrix ![Concentrix](/assets/images/logos/concentrix-logo.png){:.inline-logo}
+### Concentrix
 Automated sentiment analysis and scaled ingestion pipelines for realtime analytics.
 
 ### Research
