@@ -33,14 +33,12 @@ Automated sentiment analysis and scaled ingestion pipelines for realtime analyti
 ### Research
 Developed BioBERT models and LLM fine-tuning work for clinical decision support.
 
-<!-- Uncomment and add logos when ready
 ## Logos
 
 ![Amazon](/assets/images/logos/amazon-logo.png){:.inline-logo}
-![UC San Diego](/assets/images/logos/ucsd-logo.png){:.inline-logo}
-![AARK Global](/assets/images/logos/aark-logo.png){:.inline-logo}
+![UC San Diego](/assets/images/logos/ucsd-logo.jpeg){:.inline-logo}
+![AARK Global](/assets/images/logos/aark-logo.jpeg){:.inline-logo}
 ![Concentrix](/assets/images/logos/concentrix-logo.png){:.inline-logo}
--->
 
 ## Skills
 
