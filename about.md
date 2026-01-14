@@ -14,7 +14,7 @@ accent_image: /assets/images/mountain.jpg
 
 ## Hi, I'm Raghav 👋
 
-Software engineer with ~3 years of experience building production systems and ML-powered services. I'm currently exploring how to design ML systems that deliver more value while using fewer resources.
+I'm a software engineer with ~3 years of experience building production systems and ML-powered services. I'm currently exploring how to design ML systems that deliver more value while using fewer resources.
 
 ## Experience
 
