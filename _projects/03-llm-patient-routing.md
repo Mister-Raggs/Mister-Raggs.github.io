@@ -7,7 +7,7 @@ description: >
   Achieved 91.6% accuracy across 1,000+ assessments with optimized inference.
 ---
 
-**[View Paper](https://doi.org/10.1016/S0016-5085(25)04641-4)**
+**[View Paper](https://ieeexplore.ieee.org/document/11252667)**
 
 ## Overview
 
