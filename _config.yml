@@ -4,8 +4,8 @@
 title: Raghav Kachroo
 tagline: Building better, faster.
 description: >-
-  Software engineer interested in AI, backend systems, and full-stack development.
-  Currently exploring LLMs, distributed systems, and high-performance computing.
+  Software engineer focused on large-scale data systems, distributed pipelines, and observability -
+  where ML/AI improves reliability and operations in production.
 
 # Global sidebar/cover background
 accent_image: /assets/images/mountain.jpg
@@ -18,7 +18,7 @@ baseurl: ""
 lang: en
 
 # Keywords for SEO
-keywords: [AI, machine learning, software engineering, backend systems, LLM]
+keywords: [distributed systems, data pipelines, observability, ML reliability, large-scale infrastructure, AI platforms]
 
 # Logo (used by Hydejack for avatar/logo)
 logo: /assets/images/bio-photo.jpg
@@ -28,8 +28,8 @@ author:
   name: Raghav Kachroo
   email: rkachroo@ucsd.edu
   about: |
-    Software engineer passionate about AI, backend systems, and full-stack development.
-    Currently exploring LLMs, distributed systems, and high-performance computing.
+    Software engineer focused on large-scale data systems and distributed pipelines in production.
+    Interested in observability, reliability, and where ML/AI improves how infrastructure operates at scale.
   picture: /assets/images/bio-photo.jpg
   social:
     github: mister-raggs

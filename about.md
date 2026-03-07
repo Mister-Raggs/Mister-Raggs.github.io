@@ -14,7 +14,7 @@ accent_image: /assets/images/mountain.jpg
 
 ## Hi, I'm Raghav 👋
 
-I'm a software engineer with ~3 years of experience building production systems and ML-powered services. I'm currently exploring how to design ML systems that deliver more value while using fewer resources.
+I'm a software engineer focused on large-scale data systems and distributed pipelines in production. I'm drawn to problems where scale fundamentally changes system architecture - especially in observability and data infrastructure, where ML/AI can improve reliability and operational visibility. I'm interested in platforms that turn complex infrastructure into reliable building blocks for developers, particularly in large-scale data and AI systems.
 
 ## Experience
 
@@ -35,14 +35,14 @@ Developed BioBERT models and LLM fine-tuning work for clinical decision support.
 
 ## Skills
 
-- **AI/ML:** LLMs, RAG, Fine-tuning, BioBERT
-- **Backend:** Python, FastAPI, Microservices
-- **Infrastructure:** AWS, Distributed Systems
-- **Other:** High-Performance Computing, Data Pipelines
+- **Distributed Systems:** Large-scale data pipelines, log search, low-latency microservices
+- **Observability:** Incident tooling, operational visibility, reliability engineering
+- **ML/AI for Infrastructure:** Anomaly detection, RAG, LLM fine-tuning, operational intelligence
+- **Backend:** Python, FastAPI, microservices, AWS
 
 ## Interests
 
-- LLMs and Generative AI
-- Distributed Systems
-- High-Performance Computing
-- Backend Infrastructure
+- Distributed data pipelines and stream processing
+- Observability and operational visibility at scale
+- ML/AI applied to infrastructure reliability
+- Platforms that simplify large-scale data and AI systems
