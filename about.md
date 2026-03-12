@@ -14,7 +14,7 @@ accent_image: /assets/images/mountain.jpg
 
 ## Hi, I'm Raghav 👋
 
-I'm a software engineer focused on large-scale data systems and distributed pipelines in production. I'm drawn to problems where scale fundamentally changes system architecture - especially in observability and data infrastructure, where ML/AI can improve reliability and operational visibility. I'm interested in platforms that turn complex infrastructure into reliable building blocks for developers, particularly in large-scale data and AI systems.
+I'm a software engineer drawn to operational problems — the kind where something is slow, manual, or breaking under load. Most of my work has been finding those points and building systems that fix them structurally: faster log search, automated on-call workflows, distributed ingestion pipelines. Lately that's been pulling me toward AI systems specifically — where the same reliability and latency problems show up, but the infrastructure is less mature.
 
 ## Experience
 
