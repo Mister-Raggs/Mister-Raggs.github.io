@@ -20,6 +20,10 @@ This project demonstrates the application of fine-tuned large language models fo
 - **Production-ready**: Deployed on AWS Bedrock with FastAPI
 - **Scalable architecture**: Supports high-throughput inference
 
+## Why This Project
+
+Triage decisions in clinical settings often depend on information buried in unstructured notes. The question this work tried to answer was whether a fine-tuned model could reduce that gap in a way that was fast enough to be practical — the 16s → 5s inference work came directly from that constraint.
+
 ## Technologies
 
 - BioBERT

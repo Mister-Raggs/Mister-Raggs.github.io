@@ -65,6 +65,10 @@ Built as a modular three-component pipeline:
 - Designed scalable architecture supporting automated review and iterative fix cycles
 - Created clean component interfaces enabling parallel team development
 
+## Why I Built It
+
+Writing code is rarely the bottleneck — context switching is. The idea was to remove the overhead between a verbal decision in a meeting and an actual PR, and use it as a real test of how far multi-agent orchestration could go with minimal human-in-the-loop steps.
+
 ## Technologies
 
 - Python, asyncio

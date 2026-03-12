@@ -26,6 +26,10 @@ A flexible, production-ready implementation of Retrieval-Augmented Generation (R
 - Generate answers grounded in retrieved documents
 - Evaluate retrieval quality
 
+## Why I Built It
+
+Most RAG tutorials stop at the demo stage — a working pipeline but nothing you'd trust in production. I built this to understand the full stack from retrieval quality to inference latency, with enough structure to extend it to real use cases rather than starting from scratch each time.
+
 ## Technologies
 
 - PyTorch

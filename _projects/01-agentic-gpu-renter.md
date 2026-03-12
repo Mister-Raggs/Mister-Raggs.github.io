@@ -28,6 +28,10 @@ An autonomous LLM agent that manages cloud GPU rental from multiple vendors, cap
 - **Vendor Management**: Simulated APIs with realistic failure modes for comprehensive testing
 - **Historical Learning**: Agent adapts strategy based on previous failures and vendor reliability data
 
+## Why I Built It
+
+GPU access is one of the most manual parts of ML workflows — checking availability across vendors, babysitting jobs, handling failures mid-run. I wanted to see how far an agent with durable state could go in handling the full lifecycle autonomously, including replanning when a vendor fails partway through.
+
 ## Technologies
 
 - TypeScript
