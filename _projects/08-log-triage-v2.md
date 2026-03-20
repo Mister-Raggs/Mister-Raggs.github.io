@@ -32,7 +32,9 @@ Deployed as a Kubernetes pod with the generator running as a sidecar that writes
 
 ## Why I Built It
 
-At Amazon, I built the original version of this system (Lambda + Java) to solve a real on-call pain point — digging through massive log volumes to find the entry closest to an incident timestamp. The production system used internal log aggregation tooling (Timber) with a 1-hour publish delay, binary search for fast lookups, and an MCP endpoint for access. It plugged into AWS Step Functions and LLM confidence scoring to automate on-call SOP workflows.
+At Amazon, the legacy system for log triage was Timber — an internal log aggregation tool with a 1-hour publish delay. Engineers on-call would manually sift through massive log volumes to find the relevant entry near an incident timestamp.
+
+I built a layer on top of that: binary search for sub-second lookups, an MCP endpoint for programmatic access, AWS Step Functions for workflow orchestration, and LLM confidence scoring to automate on-call SOP decisions. That's what cut triage time from 15 minutes to under 45 seconds.
 
 I rebuilt it in Go to make the core idea portable: better concurrency primitives, smaller binaries, observability from day one, and no internal dependencies — so the architecture speaks for itself.
 
