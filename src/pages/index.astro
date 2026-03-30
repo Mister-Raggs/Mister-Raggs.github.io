@@ -1,0 +1,255 @@
+---
+import { getCollection } from "astro:content";
+import PageLayout from "@layouts/PageLayout.astro";
+import ArrowCard from "@components/ArrowCard.astro";
+import Link from "@components/Link.astro";
+import { dateRange } from "@lib/utils";
+import { SITE, HOME, SOCIALS, SKILLS } from "@consts";
+
+const blog = (await getCollection("blog"))
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, SITE.NUM_POSTS_ON_HOMEPAGE);
+
+const projects = (await getCollection("projects"))
+  .filter(project => !project.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, SITE.NUM_PROJECTS_ON_HOMEPAGE);
+
+const allwork = (await getCollection("work"))
+  .sort((a, b) => new Date(b.data.dateStart).valueOf() - new Date(a.data.dateStart).valueOf())
+  .slice(0, SITE.NUM_WORKS_ON_HOMEPAGE);
+
+const work = await Promise.all(
+  allwork.map(async (item) => {
+    const { Content } = await item.render();
+    return { ...item, Content };
+  })
+);
+---
+
+<PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
+  <div class="mx-auto max-w-5xl px-5">
+    <div class="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-12 md:gap-16">
+
+      <!-- LEFT COLUMN — sticky sidebar -->
+      <aside class="md:sticky md:top-24 md:self-start md:h-[calc(100vh-8rem)] md:overflow-y-auto md:pb-8 space-y-8 animate">
+
+        <!-- Identity -->
+        <div class="flex flex-col gap-3">
+          <img
+            src="/avatar.jpg"
+            alt="Raghav Kachroo"
+            class="w-14 h-14 rounded-full object-cover ring-2 ring-black/10 dark:ring-white/10"
+          />
+          <div>
+            <h1 class="text-base font-bold tracking-tight text-black dark:text-white">
+              Raghav Kachroo
+            </h1>
+            <p class="text-xs opacity-50 mt-0.5 leading-relaxed">
+              Distributed Systems<br/>Observability · AI
+            </p>
+          </div>
+          <a
+            href="/Raghav_Kachroo_resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block w-fit px-3 py-1 rounded border border-black/20 dark:border-white/20 text-xs font-medium hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors duration-200"
+          >
+            Resume ↗
+          </a>
+        </div>
+
+        <!-- Skills -->
+        <div class="space-y-3">
+          <p class="section-label">Skills</p>
+          <ul id="skills-list" class="flex flex-wrap gap-1.5">
+            {SKILLS.map(skill => (
+              <li
+                class="skill-chip px-2.5 py-0.5 rounded border border-black/15 dark:border-white/20 text-xs transition-all duration-200"
+                data-skill={skill}
+              >
+                {skill}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Socials -->
+        <div class="space-y-2">
+          <p class="section-label">Connect</p>
+          <ul class="flex flex-col gap-1.5">
+            {SOCIALS.map(SOCIAL => (
+              <li>
+                <Link href={SOCIAL.HREF} external aria-label={`${SITE.NAME} on ${SOCIAL.NAME}`}>
+                  <span class="text-xs">{SOCIAL.NAME}</span>
+                </Link>
+              </li>
+            ))}
+            <li>
+              <Link href={`mailto:${SITE.EMAIL}`} aria-label={`Email ${SITE.NAME}`}>
+                <span class="text-xs">{SITE.EMAIL}</span>
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+      </aside>
+
+      <!-- RIGHT COLUMN — scrollable content -->
+      <main class="space-y-20 py-2">
+
+        <!-- About -->
+        <section class="space-y-4">
+          <article class="space-y-4">
+            <p class="animate">
+              I'm a software engineer drawn to operational problems — the kind where something is slow, manual, or breaking under load. Most of my work has been finding those points and building systems that fix them structurally: faster log search, automated on-call workflows, distributed ingestion pipelines. Lately that's been pulling me toward AI systems specifically — where the same reliability and latency problems show up, but the infrastructure is less mature.
+            </p>
+            <p class="animate">
+              My recent work sits at the intersection: LLM-powered log anomaly detection, autonomous agents that manage cloud infrastructure, voice-driven code generation pipelines, and RAG systems for real-world retrieval problems. I care about the parts most people skip — how you evaluate LLM output in production, how you make an agent reliable enough to run unsupervised, how you design pipelines that fail gracefully when the model doesn't.
+            </p>
+          </article>
+        </section>
+
+        <!-- Work Experience -->
+        <section class="animate space-y-6">
+          <div class="flex items-center justify-between">
+            <h5 class="section-label">Work Experience</h5>
+            <Link href="/work">See all</Link>
+          </div>
+          <ul class="flex flex-col divide-y divide-black/8 dark:divide-white/8">
+            {work.map((entry, i) => (
+              <li
+                class="work-entry group py-5 cursor-default"
+                data-tags={JSON.stringify(entry.data.tags ?? [])}
+              >
+                <div class="flex items-baseline justify-between gap-4">
+                  <div class="flex items-baseline gap-3 min-w-0">
+                    <span class="entry-number font-mono text-sm opacity-20 shrink-0 transition-all duration-200">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span class="entry-title font-bold text-black/80 dark:text-white/80 transition-all duration-200">
+                      {entry.data.company}
+                    </span>
+                    <span class="text-sm opacity-40 truncate italic">{entry.data.role}</span>
+                  </div>
+                  <span class="text-xs font-mono opacity-30 whitespace-nowrap shrink-0">
+                    {dateRange(entry.data.dateStart, entry.data.dateEnd)}
+                  </span>
+                </div>
+                <article class="mt-2 text-sm">
+                  <entry.Content />
+                </article>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <!-- Recent Projects -->
+        <section class="animate space-y-6">
+          <div class="flex items-center justify-between">
+            <h5 class="section-label">Recent Projects</h5>
+            <Link href="/projects">See all</Link>
+          </div>
+          <ul class="flex flex-col divide-y divide-black/8 dark:divide-white/8">
+            {projects.map((project, i) => (
+              <li
+                class="project-entry group py-5 cursor-default"
+                data-tags={JSON.stringify(project.data.tags ?? [])}
+              >
+                <div class="flex items-baseline justify-between gap-4">
+                  <div class="flex items-baseline gap-3 min-w-0">
+                    <span class="entry-number font-mono text-sm opacity-20 shrink-0 transition-all duration-200">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span class="entry-title font-bold text-black/80 dark:text-white/80 truncate transition-all duration-200">
+                      {project.data.title}
+                    </span>
+                  </div>
+                  {project.data.repoURL && (
+                    <a
+                      href={project.data.repoURL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-xs font-mono opacity-30 hover:opacity-70 whitespace-nowrap shrink-0 transition-opacity"
+                    >
+                      GitHub ↗
+                    </a>
+                  )}
+                </div>
+                <p class="mt-1.5 text-sm opacity-50 leading-relaxed italic">
+                  {project.data.description}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <!-- Latest Posts -->
+        <section class="animate space-y-6">
+          <div class="flex items-center justify-between">
+            <h5 class="section-label">Latest Posts</h5>
+            <Link href="/blog">See all</Link>
+          </div>
+          <ul class="flex flex-col gap-4">
+            {blog.map(post => (
+              <li>
+                <ArrowCard entry={post} />
+              </li>
+            ))}
+          </ul>
+        </section>
+
+      </main>
+
+    </div>
+  </div>
+</PageLayout>
+
+<script>
+  function initSkillHighlight() {
+    const skillsList = document.getElementById("skills-list");
+    if (!skillsList) return;
+
+    const chips = skillsList.querySelectorAll<HTMLElement>(".skill-chip");
+    const entries = document.querySelectorAll<HTMLElement>(".project-entry, .work-entry");
+
+    function highlightSkills(tags: string[]) {
+      chips.forEach(chip => {
+        const skill = chip.dataset.skill ?? "";
+        if (tags.includes(skill)) {
+          chip.classList.add("skill-active");
+          chip.classList.remove("skill-dim");
+        } else {
+          chip.classList.add("skill-dim");
+          chip.classList.remove("skill-active");
+        }
+      });
+    }
+
+    function dimSiblings(active: HTMLElement) {
+      entries.forEach(entry => {
+        if (entry !== active) {
+          entry.classList.add("entry-dim");
+        }
+      });
+    }
+
+    function reset() {
+      chips.forEach(chip => chip.classList.remove("skill-active", "skill-dim"));
+      entries.forEach(entry => entry.classList.remove("entry-dim"));
+    }
+
+    entries.forEach(entry => {
+      const tags: string[] = JSON.parse(entry.dataset.tags ?? "[]");
+      entry.addEventListener("mouseenter", () => {
+        highlightSkills(tags);
+        dimSiblings(entry);
+      });
+      entry.addEventListener("mouseleave", reset);
+    });
+  }
+
+  initSkillHighlight();
+  document.addEventListener("astro:page-load", initSkillHighlight);
+</script>
