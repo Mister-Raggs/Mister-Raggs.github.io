@@ -12,10 +12,11 @@ Flare ingests raw log data, detects anomalies using classical ML (Isolation Fore
 
 ## Key Achievements
 
-- **Classical + LLM Pipeline**: Isolation Forest achieves F1=1.0 on HDFS sample data; LLM layer adds human-readable explanations grounded in specific log evidence
-- **LLM-as-Judge Evaluation**: Automated quality rubric scoring (relevance, specificity, actionability) using a second LLM call — enables CI-friendly eval without human labeling
+- **Real Benchmark**: Isolation Forest achieves F1=0.642, Precision=0.688, Recall=0.601 on the full HDFS dataset (11.2M lines, 575K blocks, 16K anomalies)
+- **LLM-as-Judge Evaluation**: Automated quality rubric scoring (relevance 5/5, specificity 5/5, actionability 4/5) using a second LLM call — enables CI-friendly eval without human labeling
+- **Multi-Format Log Parsing**: Auto-detects HDFS, OpenSSH, syslog formats; heuristic generic fallback for arbitrary logs; Drain3 template state persists across restarts
+- **Real-Time Replay**: Stream any log file through the detection pipeline at configurable speed with tumbling-window detection and persistent template state
 - **Production-Ready API**: FastAPI REST layer with Pydantic validation, structured logging, CORS, and auto-generated OpenAPI docs
-- **Full Observability**: Token usage, latency, and cost tracking on every LLM call; chain-of-thought prompting with confidence scoring
 
 ## Architecture
 
@@ -25,4 +26,4 @@ Raw Logs → Drain3 Parsing → Isolation Forest → DBSCAN Clustering → Claud
 
 ## Tech Stack
 
-Python 3.11+ · Drain3 · scikit-learn · Anthropic API · FastAPI · Pydantic · Docker · GitHub Actions CI (72 tests)
+Python 3.11+ · Drain3 · scikit-learn · Anthropic API · FastAPI · Pydantic · Docker · GitHub Actions CI (121 tests)

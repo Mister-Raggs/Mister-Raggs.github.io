@@ -40,7 +40,7 @@ Drain3 is a streaming log parser that builds a template tree. When it sees `Rece
 
 This matters because it transforms the problem. Instead of "find anomalies in text," it becomes "find blocks whose template frequency distribution is unusual." Normal HDFS blocks follow a predictable lifecycle: `Receiving block` → `PacketResponder terminating` → `Received block`. Anomalous blocks break this pattern — they show `IOException`, `WARN`, or `ERROR` templates that never appear in normal operations.
 
-Isolation Forest on these template histograms gets perfect precision and recall on the sample dataset (F1 = 1.0 at contamination=0.15). That's partly because the sample is small and the anomalies are distinct. On the full HDFS dataset, you'd expect degradation — blocks that are "slow" rather than "broken" are harder to catch with frequency features alone.
+Isolation Forest on these template histograms gets perfect precision and recall on the small curated sample (F1 = 1.0 at contamination=0.15). On the full HDFS dataset — 11.2M lines, 575K blocks, 16,838 anomalies — it achieves F1=0.642, Precision=0.688, Recall=0.601. The degradation is expected: the model needs enough blocks to learn a meaningful normal distribution, and some anomalous blocks look structurally similar to normal ones at the template frequency level. Sequence-aware features would close that gap.
 
 ## The LLM layer
 
@@ -88,9 +88,11 @@ Every eval run also tracks token counts, latency, and estimated cost. For 3 inci
 
 **Better clustering.** DBSCAN on template frequency vectors is a blunt instrument. A vector store with embeddings of the log sequences would capture semantic similarity between incidents.
 
-**Temporal features.** The current feature vector is a bag of template counts. Sequence-aware features (template transition probabilities, time deltas) would catch slow-burn anomalies that frequency alone misses.
+**Temporal features.** The current feature vector is a bag of template counts. Sequence-aware features (template transition probabilities, time deltas) would catch slow-burn anomalies that frequency alone misses. This is the clearest path to improving recall beyond 0.6.
 
 **Integration with real infrastructure.** A production version would consume from Fluent Bit or an OTEL collector, maintain persistent template state, and push summaries to PagerDuty or Slack.
+
+Since writing this, I've added multi-format log parsing (HDFS, OpenSSH, syslog, generic heuristic fallback), Drain3 template persistence across restarts, and a log replayer that streams any file through the detection pipeline at configurable speed with tumbling-window detection. The architecture is now closer to something you'd actually deploy.
 
 ---
 
