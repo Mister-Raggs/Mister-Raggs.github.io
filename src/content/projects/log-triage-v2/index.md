@@ -15,10 +15,10 @@ v2 rewrites the core in Go, strips out internal dependencies, and adds observabi
 ## Key Achievements
 
 - **Sub-Millisecond Lookups**: Binary search over a time-sorted in-memory index finds the nearest log entry across millions of lines in under 1ms
-- **Production-Scale Simulation**: Log generator replicates real volume (42M rows/hour / 11,667 lines/sec) without internal dependencies
-- **Built-In Observability**: Prometheus metrics for request counts, latency histograms, index size, ingestion totals, and parse error counts
+- **Parallel Ingestion Worker Pool**: Log lines are parsed concurrently across a goroutine pool — replaces the prior single-goroutine pipeline; benchmarked for pool throughput at production-scale volume
+- **FIFO Eviction**: `--max-entries` flag caps index memory usage; oldest entries evicted automatically with an `evictions_total` Prometheus counter
+- **Built-In Observability**: Prometheus metrics for request counts, latency histograms, index size, ingestion totals, parse errors, and evictions
 - **Kubernetes-Native**: Multi-stage Docker build (~15MB image), K8s manifests with health/readiness probes and resource limits
-- **Clean Separation of Concerns**: Ingestion, indexing, query, and analysis are distinct packages with clear interfaces
 
 ## Architecture
 

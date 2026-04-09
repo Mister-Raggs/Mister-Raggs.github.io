@@ -1,6 +1,6 @@
 ---
 title: "Parade: VC-Funded Job Discovery Pipeline"
-description: "Automated job discovery pipeline that monitors VC funding news, resolves newly funded companies to their careers pages, and delivers a daily digest of tech roles by email."
+description: "Automated job discovery pipeline that monitors VC funding news, resolves companies via Clearbit with graceful degradation, scrapes careers pages across Lever/Greenhouse/Ashby, and delivers a daily digest of tech roles by email."
 date: "Mar 01 2026"
 repoURL: "https://github.com/Mister-Raggs/Parade"
 tags: ["Python"]
@@ -18,7 +18,7 @@ The system runs as a five-stage pipeline: fetch funding announcements from RSS f
 Fetches funding announcements from TechCrunch, Crunchbase, and VentureBeat within a configurable lookback window (default 24 hours).
 
 **Stage 2 — Company Resolution**
-For each funded company, resolves the company's website and locates a careers page URL using heuristic crawling and common path patterns.
+Resolves each company's website by parsing the source article, then falling back to the Clearbit autocomplete API, then DuckDuckGo. Clearbit is monitored with a healthcheck that logs a degradation warning and falls back gracefully when unavailable. Resolution method and scraper type are logged per company for each run.
 
 **Stage 3 — Careers Scraping**
 Scrapes each careers page for open roles and filters by a configurable keyword list covering engineering, data, infrastructure, ML, and platform roles.

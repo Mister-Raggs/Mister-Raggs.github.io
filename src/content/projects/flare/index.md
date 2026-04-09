@@ -12,11 +12,11 @@ Flare ingests raw log data, detects anomalies using classical ML (Isolation Fore
 
 ## Key Achievements
 
-- **Real Benchmark**: Isolation Forest achieves F1=0.642, Precision=0.688, Recall=0.601 on the full HDFS dataset (11.2M lines, 575K blocks, 16K anomalies)
+- **Real Benchmark**: Isolation Forest achieves F1=0.642, Precision=0.688, Recall=0.601 on the full HDFS dataset (11.2M lines, 575K blocks, 16.8K anomalies — 2.9% anomaly rate); features are per-block Drain3 template frequency vectors learned across the full dataset
 - **LLM-as-Judge Evaluation**: Automated quality rubric scoring (relevance 5/5, specificity 5/5, actionability 4/5) using a second LLM call — enables CI-friendly eval without human labeling
 - **Multi-Format Log Parsing**: Auto-detects HDFS, OpenSSH, syslog formats; heuristic generic fallback for arbitrary logs; Drain3 template state persists across restarts
-- **Real-Time Replay**: Stream any log file through the detection pipeline at configurable speed with tumbling-window detection and persistent template state
-- **Production-Ready API**: FastAPI REST layer with Pydantic validation, structured logging, CORS, and auto-generated OpenAPI docs
+- **Live Demo Streaming**: SSE endpoint replays shuffled HDFS blocks at 5 lines/sec through the full detection pipeline — each run randomizes block order for different results; configurable stream length (50–500 lines)
+- **Production-Ready API**: FastAPI REST layer with Pydantic validation, structured logging, CORS, and auto-generated OpenAPI docs; live at `167.172.216.126:8000`
 
 ## Architecture
 
