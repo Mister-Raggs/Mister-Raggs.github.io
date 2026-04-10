@@ -154,32 +154,41 @@ const work = await Promise.all(
           <ul class="flex flex-col divide-y divide-black/8 dark:divide-white/8">
             {projects.map((project, i) => (
               <li
-                class="project-entry group py-5 cursor-default"
+                class="project-entry group py-5"
                 data-tags={JSON.stringify(project.data.tags ?? [])}
               >
-                <div class="flex items-baseline justify-between gap-4">
-                  <div class="flex items-baseline gap-3 min-w-0">
-                    <span class="entry-number font-mono text-sm opacity-20 shrink-0 transition-all duration-200">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span class="entry-title font-bold text-black/80 dark:text-white/80 truncate transition-all duration-200">
-                      {project.data.title}
-                    </span>
+                <a
+                  href={`/projects/${project.slug}`}
+                  class="block -mx-3 px-3 py-1 rounded-md hover:bg-black/4 dark:hover:bg-white/4 transition-colors duration-150"
+                >
+                  <div class="flex items-baseline justify-between gap-4">
+                    <div class="flex items-baseline gap-3 min-w-0">
+                      <span class="entry-number font-mono text-sm opacity-20 shrink-0 transition-all duration-200">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <span class="entry-title font-bold text-black/80 dark:text-white/80 truncate transition-all duration-200 group-hover:text-black dark:group-hover:text-white">
+                        {project.data.title}
+                      </span>
+                    </div>
+                    <div class="flex items-center gap-3 shrink-0">
+                      {project.data.repoURL && (
+                        <a
+                          href={project.data.repoURL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="text-xs font-mono opacity-30 hover:opacity-70 whitespace-nowrap transition-opacity"
+                          onclick="event.stopPropagation()"
+                        >
+                          GitHub ↗
+                        </a>
+                      )}
+                      <span class="text-xs font-mono opacity-20 group-hover:opacity-50 transition-opacity">→</span>
+                    </div>
                   </div>
-                  {project.data.repoURL && (
-                    <a
-                      href={project.data.repoURL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="text-xs font-mono opacity-30 hover:opacity-70 whitespace-nowrap shrink-0 transition-opacity"
-                    >
-                      GitHub ↗
-                    </a>
-                  )}
-                </div>
-                <p class="mt-1.5 text-sm opacity-50 leading-relaxed italic">
-                  {project.data.description}
-                </p>
+                  <p class="mt-1.5 text-sm opacity-50 leading-relaxed italic">
+                    {project.data.description}
+                  </p>
+                </a>
               </li>
             ))}
           </ul>

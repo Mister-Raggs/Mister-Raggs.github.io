@@ -37,6 +37,10 @@ export const SOCIALS: Socials = [
     NAME: "linkedin",
     HREF: "https://www.linkedin.com/in/raghavkachroo",
   },
+  {
+    NAME: "leetcode",
+    HREF: "https://leetcode.com/u/ragg04/",
+  },
 ];
 
 export const SKILLS = [
