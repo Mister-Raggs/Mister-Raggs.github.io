@@ -2,6 +2,7 @@
 title: "WILT: LangChain Essentials — ReAct, Streaming, Tools, and MCP"
 description: "My hands-on exploration of LangChain essentials, covering ReAct, streaming, tools, MCP, and agentic workflows."
 date: "Dec 15 2025"
+draft: true
 ---
 
 ## LangChain Essentials Labs

@@ -2,6 +2,7 @@
 title: "WILT: Agentic AI Workflows and Design Patterns"
 description: "My structured dive into Agentic AI workflows, design patterns, and practical implementation tips from the DeepLearning.AI course."
 date: "Dec 11 2025"
+draft: true
 ---
 
 ## Agentic AI

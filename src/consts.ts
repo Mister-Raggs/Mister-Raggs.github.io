@@ -5,7 +5,7 @@ export const SITE: Site = {
   EMAIL: "rkachroo@ucsd.edu",
   NUM_POSTS_ON_HOMEPAGE: 3,
   NUM_WORKS_ON_HOMEPAGE: 4,
-  NUM_PROJECTS_ON_HOMEPAGE: 3,
+  NUM_PROJECTS_ON_HOMEPAGE: 4,
 };
 
 export const HOME: Metadata = {
@@ -47,7 +47,6 @@ export const SKILLS = [
   // Languages
   "Python",
   "Go",
-  "TypeScript",
   "SQL",
   // Infra & Systems
   "Distributed Systems",
