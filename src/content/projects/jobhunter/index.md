@@ -1,6 +1,6 @@
 ---
 title: "JobHunter"
-description: "Automated job scraper that monitors 13 companies every 30 minutes, deduplicates postings in SQLite, and emails new listings via Resend API — deployed on a DigitalOcean VPS with a live dashboard."
+description: "Automated job scraper monitoring 40+ companies across 8 ATS platforms every 30 minutes, deduplicates postings in SQLite, and emails new listings via Resend API — deployed on a DigitalOcean VPS with a live dashboard."
 date: "Apr 9 2026"
 demoURL: "http://167.172.216.126"
 repoURL: "https://github.com/mister-raggs/JobHunter"
@@ -9,11 +9,11 @@ tags: ["Python", "SQLite", "SQLAlchemy", "Web Scraping", "DigitalOcean"]
 
 ## Overview
 
-JobHunter runs on a DigitalOcean VPS and checks 13 target companies for new job postings every 30 minutes between 6am–8pm PST. New listings are deduplicated against a local SQLite database and emailed immediately via the Resend API. A live dashboard updates with each run, showing per-company job counts and all tracked postings — with a built-in 30-minute delay so email always delivers first.
+JobHunter runs on a DigitalOcean VPS and checks 40+ target companies for new job postings every 30 minutes between 6am–8pm PST. New listings are deduplicated against a local SQLite database and emailed immediately via the Resend API. A live dashboard updates with each run, showing per-company job counts and all tracked postings — with a built-in 30-minute delay so email always delivers first.
 
 ## Key Features
 
-- **Multi-scraper architecture**: Supports 7 scraper types (Greenhouse, Ashby, Eightfold, Phenom, Apple, Qualcomm, Uber) covering 13 companies
+- **Multi-scraper architecture**: Supports 8 scraper types (Greenhouse, Ashby, Workable, Eightfold, Phenom, Apple, Qualcomm, Uber) covering 40+ companies including Stripe, LangChain, ElevenLabs, and Applied Intuition — over 2,000 jobs seeded on the initial Workable rollout
 - **Early-exit pagination**: Stops fetching mid-page as soon as a known job ID is encountered, cutting unnecessary network requests on repeat runs
 - **SQLite deduplication**: `notified` column tracks email state — jobs that fail to send are automatically retried next run
 - **Resend API email**: HTML digest of new postings; avoids DigitalOcean's SMTP block by using HTTPS

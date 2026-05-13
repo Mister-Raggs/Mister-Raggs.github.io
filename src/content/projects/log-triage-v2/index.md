@@ -14,16 +14,19 @@ v2 rewrites the core in Go, strips out internal dependencies, and adds observabi
 
 ## Key Achievements
 
-- **Sub-Millisecond Lookups**: Binary search over a time-sorted in-memory index finds the nearest log entry across millions of lines in under 1ms
-- **Parallel Ingestion Worker Pool**: Log lines are parsed concurrently across a goroutine pool — replaces the prior single-goroutine pipeline; benchmarked for pool throughput at production-scale volume
+- **Sub-Microsecond Lookups**: Binary search over a time-sorted in-memory index — 49ns at 1k entries, 77ns at 1M entries (less than 2× growth over three orders of magnitude); cache-dominated, not comparison-bound
+- **Parallel Ingestion Worker Pool**: Reader goroutine feeds raw lines into a channel; N worker goroutines parse in parallel; collector drains results and calls `InsertBatch` — replaces the prior single-goroutine pipeline
+- **Write-Ahead Log**: Append-only WAL with batched fsync (every 1,000 entries or 500ms) and startup replay — recovers 29,984/30,000 entries in a crash test, bounded loss with no corruption
 - **FIFO Eviction**: `--max-entries` flag caps index memory usage; oldest entries evicted automatically with an `evictions_total` Prometheus counter
-- **Built-In Observability**: Prometheus metrics for request counts, latency histograms, index size, ingestion totals, parse errors, and evictions
+- **Built-In Observability**: Prometheus metrics (request counts, latency histograms, index size, ingestion totals, parse errors, evictions) plus OpenTelemetry spans on `/query` (decode, index_lookup, encode)
 - **Kubernetes-Native**: Multi-stage Docker build (~15MB image), K8s manifests with health/readiness probes and resource limits
 
 ## Architecture
 
 ```
-Generator (sidecar) --> Log File --> Ingestion Goroutine --> Sorted Index (binary search) --> HTTP Server (:8080)
+Generator (sidecar) → Log File → Reader → Worker Pool (parse) → Collector → Sorted Index ← Binary Search ← HTTP :8080
+                                                                       ↓
+                                                                      WAL (append + batched fsync, replayed on startup)
 ```
 
 Deployed as a Kubernetes pod with the generator running as a sidecar that writes logs, and the server ingesting, indexing, and serving queries.
@@ -38,4 +41,4 @@ I rebuilt it in Go to make the core idea portable: better concurrency primitives
 
 ## Technologies
 
-Go · Docker · Kubernetes · Prometheus · Zap
+Go · Docker · Kubernetes · Prometheus · OpenTelemetry · Zap
