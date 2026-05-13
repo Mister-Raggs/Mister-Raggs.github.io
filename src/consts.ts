@@ -56,13 +56,12 @@ export const SKILLS = [
   // Data & Pipelines
   "Kafka",
   "Airflow",
-  "Elasticsearch",
   // AI / ML
-  "LLM Pipelines",
-  "Agentic Systems",
-  "LLM Evaluation",
-  "RAG",
   "PyTorch",
+  "Diffusers",
+  "LoRA",
+  "LLM Pipelines",
+  "LLM Evaluation",
   // Web & Cloud
   "FastAPI",
   "AWS",
