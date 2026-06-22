@@ -109,7 +109,7 @@ const work = await Promise.all(
               My recent work sits in two adjacent stacks. At the Hao AI Lab I've been shipping inference optimizations to FastVideo (open-source video-diffusion framework): a uint8-on-GPU fix that cut Cosmos 2.5 end-to-end latency by up to <strong>15.6%</strong> after diagnosing that a "slow stage" was actually absorbing a deferred multi-hundred-MB GPU→CPU transfer, a documented torch.compile A/B that surfaced a hidden <strong>−24%</strong> speedup, and the Cosmos 2.5 training pipeline (LoRA + full fine-tune) now upstream. Adjacent to that — a Go-based log indexing engine sustaining 42M rows/hour with sub-microsecond lookups, and an LLM-powered anomaly detection system that scores its own outputs against labeled HDFS data.
             </p>
             <p class="animate">
-              The common thread is the same in both stacks: profile before you guess, gate every output-affecting change with a verification metric (SSIM for video, F1 for anomaly detection), and report honest config-dependent numbers rather than the best one you saw.
+              Throughline in both: profile before you guess, gate output-affecting changes with a verification metric, report honest numbers — not the best one you saw.
             </p>
           </article>
         </section>
