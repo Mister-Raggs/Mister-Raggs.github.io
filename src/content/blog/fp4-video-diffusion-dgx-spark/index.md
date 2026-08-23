@@ -17,11 +17,11 @@ That's a real win. It's also the least interesting thing I learned.
 
 ## The part that surprised me
 
-I ran the same one-line change on two other models, expecting roughly the same result. On Wan-2.1 it was break-even. On Cosmos-2.5 it came out at −1.1% — noise — and the output got slightly worse.
+I quantized the linear layers of two other models the same way, expecting roughly the same result. On Wan-2.1 it was break-even. On Cosmos-2.5 it came out at −1.1%, which is indistinguishable from noise.
 
 Same technique, same hardware, same kernel, three different verdicts. Why?
 
-Because "is 4-bit faster" was never the right question. The real one is: how much of the work are you actually quantizing? LTX-2 at 1080p spends its time inside enormous linear layers, so shrinking those dominates everything. Cosmos-2.5 spends around 95% of its step in attention — so speeding up its linear layers couldn't have helped no matter how good the kernel was.
+Because "is 4-bit faster" was never the right question. The real one is: how much of the work are you actually quantizing? LTX-2 works on comparatively short sequences, so its linear layers are where the time actually goes. Cosmos-2.5 runs sequences around 31k tokens long, and attention cost grows with the square of that — about 95% of its step. Speeding up its linear layers couldn't have helped no matter how good the kernel was.
 
 I could have worked that out from the FLOP budget before writing a line of code. I didn't. That's the part I actually kept.
 
@@ -34,9 +34,9 @@ For the curious, the full breakdown — LTX-2.3-distilled, 1088×1920, 121 frame
 | Base denoising | 61.97 s | 44.17 s | −28.7% |
 | Refine denoising | 109.29 s | 86.59 s | −20.8% |
 | **Total denoise** | **171.26 s** | **130.76 s** | **−23.7%** |
-| Upsample + VAE decode | 53.4 s | 54.4 s | unchanged |
+| Upsample + VAE decode | 53.4 s | 54.4 s | +1.0 s (noise) |
 
-The VAE decode isn't quantized and doesn't move, which is the sanity check I care about most. The savings show up exactly where the change was applied, and nowhere else.
+The VAE decode isn't quantized and barely moves, which is the sanity check I care about most. The savings show up exactly where the change was applied, and nowhere else.
 
 ## Did the quality survive?
 
@@ -46,11 +46,13 @@ The VAE decode isn't quantized and doesn't move, which is the sanity check I car
 
 Watch them for a second and you'll notice they aren't the same video — the cookies are stacked differently. That isn't damage. A few-step sampler is sensitive enough that any small numerical nudge lands it on a different, equally valid output.
 
+<img src="/media/ltx2-fp4/still_040.jpg" alt="The same frame index from each run, side by side" style="width:100%;height:auto;border-radius:6px;" />
+
 Which is what makes the obvious metric useless here. SSIM against the baseline scores 0.79, which sounds alarming until you remember what SSIM does: it compares pixels at fixed positions. A cookie that landed slightly to the left reads as damage. The metric genuinely cannot tell "different" from "worse."
 
 Sharpness statistics set the same trap one level down. The 4-bit clip measures noticeably "less sharp" — until you zoom into the background and see why:
 
-<img src="/media/ltx2-fp4/still_040.jpg" alt="Matching frames from the baseline and 4-bit runs, side by side" style="width:100%;height:auto;border-radius:6px;" />
+<img src="/media/ltx2-fp4/still_crop.jpg" alt="Magnified crop of the static background wall from each run" style="width:100%;height:auto;border-radius:6px;" />
 
 The paint speckle on the back wall is in different places in the two runs. Different samples simply contain different amounts of fine detail, and any sharpness proxy will happily report that as a quality gap.
 
