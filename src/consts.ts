@@ -47,6 +47,7 @@ export const SKILLS = [
   // Languages
   "Python",
   "Go",
+  "CUDA",
   "SQL",
   // Infra & Systems
   "Distributed Systems",
