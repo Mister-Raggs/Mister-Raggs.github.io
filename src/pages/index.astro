@@ -109,7 +109,7 @@ const work = await Promise.all(
               The friction is usually something quiet — a deferred cost being misattributed, a default nobody benchmarked, a tool whose own numbers are wrong. At the Hao AI Lab I work on FastVideo, an open-source video-diffusion framework: I cut Cosmos 2.5 inference latency <strong>15.6%</strong> after finding a "slow stage" that was really absorbing a half-gigabyte GPU→CPU transfer, built a model-agnostic caching module that takes <strong>22–47%</strong> off Wan2.1, and ported the framework to NVIDIA's DGX Spark. Same instinct outside the lab — a Go log engine doing 42M rows/hour with sub-millisecond lookups, and an ML anomaly-detection pipeline that grades its own output.
             </p>
             <p class="animate">
-              Most recently I've been testing whether that caching work transfers out of video and into robotics — Factory Diffusion measures adaptive residual caching on a LeRobot diffusion policy, trading latency against closed-loop task success. Diffusion and world-model policies for Physical AI are where I'd like to spend the next stretch.
+              Most recently I've been testing whether that caching work transfers out of video and into robotics — Factory Diffusion measures adaptive residual caching on a LeRobot diffusion policy, trading latency against closed-loop task success. What I enjoy is the impact side of it — making systems faster, cheaper, and more accessible.
             </p>
           </article>
         </section>
