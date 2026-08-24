@@ -35,8 +35,11 @@ For the curious, the full breakdown — LTX-2.3-distilled, 1088×1920, 121 frame
 | Refine denoising | 109.29 s | 86.59 s | −20.8% |
 | **Total denoise** | **171.26 s** | **130.76 s** | **−23.7%** |
 | Upsample + VAE decode | 53.4 s | 54.4 s | +1.0 s (noise) |
+| **End to end** | **231.2 s** | **192.2 s** | **−16.9%** |
 
 The VAE decode isn't quantized and barely moves, which is the sanity check I care about most. The savings show up exactly where the change was applied, and nowhere else.
+
+The stages don't quite add up to the end-to-end number. There's about seven seconds of text encoding and setup either side that I haven't broken out, and it comes in the same in both runs.
 
 ## Did the quality survive?
 
