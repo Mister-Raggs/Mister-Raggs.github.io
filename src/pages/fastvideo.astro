@@ -1,0 +1,121 @@
+---
+import PageLayout from "@layouts/PageLayout.astro";
+import Container from "@components/Container.astro";
+import BackToPrev from "@components/BackToPrev.astro";
+
+// Numbers below come from each PR's own description. Status as of Sep 2026 —
+// refresh with: gh pr list -R hao-ai-lab/FastVideo --author Mister-Raggs --state all
+const REPO = "https://github.com/hao-ai-lab/FastVideo";
+const ALL_PRS = `${REPO}/pulls?q=is%3Apr+author%3AMister-Raggs`;
+
+type Item = { prs: number[]; status: "merged" | "open"; title: string; impact: string };
+type Section = { heading: string; items: Item[] };
+
+const sections: Section[] = [
+  {
+    heading: "Inference performance",
+    items: [
+      { prs: [1362], status: "merged", title: "Quantize decoded frames on the GPU before the device→host copy",
+        impact: "−15.6% end-to-end on Cosmos 2.5 / A100. A “slow” post-decode stage was really absorbing a deferred fp32 transfer; the fix makes it 4× smaller. Independently cross-validated on Wan / H100." },
+      { prs: [1366], status: "merged", title: "torch.compile, benchmarked and documented",
+        impact: "−23.7% end-to-end on Wan2.1-1.3B / A100 (259.7 s → 198.1 s) at SSIM ≈ 1.0 — a speedup that already existed but was off by default and undocumented." },
+      { prs: [1706], status: "merged", title: "Widen the sparse-attention (VSA) Triton autotune range",
+        impact: "18–22% faster kernels. The best pipeline depth sat outside the range the autotuner was allowed to search." },
+      { prs: [1472], status: "merged", title: "bf16 VAE decode for every Wan variant",
+        impact: "~1.2–1.3× faster decode at MS-SSIM 0.9999. Decode precision is split from encode so causal and I2V models keep bit-identical trajectories." },
+      { prs: [1426], status: "open", title: "Opt-in step caching for the Wan DiT",
+        impact: "−18% wall time at SSIM 0.957, or −32% at 0.943, via cache-dit with TaylorSeer." },
+    ],
+  },
+  {
+    heading: "Compiler & kernels",
+    items: [
+      { prs: [1373], status: "merged", title: "FlashAttention as a torch.library custom op",
+        impact: "Makes attention a traceable node under torch.compile. Output-identical: SSIM 1.000 across all frames, compiled and eager." },
+      { prs: [1388], status: "merged", title: "Real backward for FlashAttention-2's default and masked/varlen paths",
+        impact: "Extends the custom op to training, so the backward pass compiles too. SSIM 1.000 on 49/49 frames." },
+      { prs: [1365], status: "merged", title: "Remove a per-layer graph break in the layer-offload hook",
+        impact: "Graph breaks 25 → 13 in a default-on path every model runs. SSIM 1.000 across 81/81 frames." },
+    ],
+  },
+  {
+    heading: "New hardware: NVIDIA DGX Spark (GB10)",
+    items: [
+      { prs: [1631], status: "merged", title: "DGX Spark performance and tuning guide",
+        impact: "Measured guidance with reproduction examples: few-step vs full-step models (~18×), bf16 VAE decode, and opt-in FP4 attention." },
+      { prs: [1468], status: "merged", title: "Wire Cosmos 2.5 2B to its sampling preset",
+        impact: "A missing registry entry silently disabled guidance, producing blurry video. Found on the Spark; sharpness ~92 → ~431, with a test for the gap." },
+      { prs: [1594], status: "open", title: "4-bit (FP4) linear layers for LTX-2.3 on the Spark",
+        impact: "−23.7% denoise at 1080p — 40.5 seconds saved per video." },
+      { prs: [1598], status: "open", title: "Build and enable FP4 attention on sm_121a",
+        impact: "−6% denoise, visually equivalent to bf16, on hardware where the kernel had been considered unsupported." },
+      { prs: [1488], status: "merged", title: "Cast fp32 inputs to bf16 at the FP4 boundary",
+        impact: "Replaces an assertion with a cast, unblocking the FP4 path on real pipelines." },
+    ],
+  },
+  {
+    heading: "Models & pipelines",
+    items: [
+      { prs: [1227], status: "merged", title: "Cosmos 2.5 training pipeline (LoRA + full fine-tune)",
+        impact: "A 2,000-step LoRA run completed cleanly on a single GPU (final loss 0.067)." },
+      { prs: [1767, 1768], status: "open", title: "Cosmos Predict2.5 distilled video continuation",
+        impact: "Chains text-to-world and video continuation stages into one seamless clip — boundary error 2.7 vs 39 for an unrelated control." },
+      { prs: [1321], status: "merged", title: "FLUX.1-dev port fixes", impact: "Native RoPE, parity tests, and an SSIM reference." },
+      { prs: [1339], status: "merged", title: "Z-Image port hardening", impact: "Strict weight loading and bf16 encoder parity, with a per-layer diagnostic separating drift from bugs." },
+      { prs: [1759], status: "merged", title: "Fall back when a large pinned-memory allocation fails", impact: "Degrades gracefully instead of crashing on long, high-resolution outputs." },
+    ],
+  },
+];
+---
+
+<PageLayout
+  title="FastVideo contributions"
+  description="16 merged PRs to FastVideo, an open-source video-generation framework (4.5k stars): inference performance, torch.compile and FlashAttention, and the DGX Spark port."
+>
+  <Container>
+    <div class="animate">
+      <BackToPrev href="/">Back to home</BackToPrev>
+    </div>
+
+    <div class="space-y-3 my-10">
+      <h1 class="animate text-2xl font-semibold text-black dark:text-white">FastVideo contributions</h1>
+      <p class="animate">
+        <a href={REPO} class="underline underline-offset-2 decoration-black/15 dark:decoration-white/30 hover:text-black dark:hover:text-white">FastVideo</a>
+        is an open-source framework for accelerated video generation, covering inference and post-training (4.5k stars).
+        I've worked on it at UCSD's Hao AI Lab since January 2026, mostly on inference performance: profile where the time
+        actually goes, fix it, and gate every change on output quality. <strong>16 of my 32 PRs are merged.</strong>
+      </p>
+    </div>
+
+    <div class="space-y-12">
+      {sections.map((section) => (
+        <section class="animate space-y-4">
+          <h2 class="section-label">{section.heading}</h2>
+          <ul class="flex flex-col divide-y divide-black/8 dark:divide-white/8">
+            {section.items.map((item) => (
+              <li class="py-4 space-y-1">
+                <div class="flex items-baseline justify-between gap-4">
+                  <span class="font-semibold text-black/80 dark:text-white/80">{item.title}</span>
+                  <span class="shrink-0 text-xs font-mono whitespace-nowrap">
+                    {item.prs.map((n, i) => (
+                      <>
+                        {i > 0 && " "}
+                        <a href={`${REPO}/pull/${n}`} target="_blank" rel="noopener noreferrer" class="opacity-50 hover:opacity-100 transition-opacity">#{n}</a>
+                      </>
+                    ))}
+                    <span class={item.status === "merged" ? "ml-2 opacity-70" : "ml-2 opacity-40 italic"}>{item.status}</span>
+                  </span>
+                </div>
+                <p class="text-sm opacity-75 leading-relaxed">{item.impact}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
+    </div>
+
+    <p class="animate mt-12 text-sm">
+      <a href={ALL_PRS} target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 decoration-black/15 dark:decoration-white/30 hover:text-black dark:hover:text-white">All 32 PRs on GitHub →</a>
+    </p>
+  </Container>
+</PageLayout>
