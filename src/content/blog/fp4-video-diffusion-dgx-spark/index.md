@@ -33,7 +33,7 @@ For the curious, the full breakdown — LTX-2.3-distilled, 1088×1920, 121 frame
 |---|---|---|---|
 | Base denoising | 61.97 s | 44.17 s | −28.7% |
 | Refine denoising | 109.29 s | 86.59 s | −20.8% |
-| **Total denoise** | **171.26 s** | **130.76 s** | **−23.7%** |
+| **Total denoise** | **171.26 s** | **130.76 s** | **−23.6%** |
 | Upsample + VAE decode | 53.4 s | 54.4 s | +1.0 s (noise) |
 | **End to end** | **231.2 s** | **192.2 s** | **−16.9%** |
 

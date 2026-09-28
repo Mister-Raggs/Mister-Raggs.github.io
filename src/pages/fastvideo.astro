@@ -46,7 +46,7 @@ const sections: Section[] = [
       { prs: [1468], status: "merged", title: "Wire Cosmos 2.5 2B to its sampling preset",
         impact: "A missing registry entry silently disabled guidance, producing blurry video. Found on the Spark; sharpness ~92 → ~431, with a test for the gap." },
       { prs: [1594], status: "open", title: "4-bit (FP4) linear layers for LTX-2.3 on the Spark",
-        impact: "−23.7% denoise at 1080p — 40.5 seconds saved per video." },
+        impact: "−23.6% denoise time at 1080p, 40.5 seconds saved per video (231 s → 192 s end to end)." },
       { prs: [1598], status: "open", title: "Build and enable FP4 attention on sm_121a",
         impact: "−6% denoise, visually equivalent to bf16, on hardware where the kernel had been considered unsupported." },
       { prs: [1488], status: "merged", title: "Cast fp32 inputs to bf16 at the FP4 boundary",
