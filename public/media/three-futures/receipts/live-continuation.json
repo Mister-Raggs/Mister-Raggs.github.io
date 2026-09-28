@@ -1,0 +1,242 @@
+{
+  "status": "complete",
+  "run_id": "live-ui-20260927-143511-1e1badc7",
+  "model_repo": "FastVideo/LTX-2.3-Distilled-Diffusers",
+  "model_revision": "22b09fb1860a944bf10fa21f033d957d9ab9ec20",
+  "container_image_ref": "ghcr.io/hao-ai-lab/fastvideo/fastvideo-dev@sha256:eedd147594af54e8cbdf46807c03b9b061202c345658422dbc38366d2c980f28",
+  "shape": {
+    "height": 512,
+    "width": 768,
+    "num_frames": 121,
+    "fps": 24
+  },
+  "dtype": "bfloat16",
+  "quantization": "none",
+  "denoise_steps": 8,
+  "refine_steps": 3,
+  "guidance_scale": 1.0,
+  "batch_size": 3,
+  "seed": 22,
+  "model_load": {
+    "seconds": 47.343193903,
+    "memory": {
+      "worker": {
+        "rank": 0,
+        "allocated_bytes": 48134975488,
+        "reserved_bytes": 49345986560,
+        "peak_allocated_bytes": 48134975488,
+        "peak_reserved_bytes": 49345986560,
+        "device_free_bytes": 141394051072,
+        "device_total_bytes": 191503138816
+      },
+      "gpu_wide": {
+        "sampled_peak_used_mib": 47788,
+        "total_mib": 183359,
+        "samples": 164,
+        "sample_interval_seconds": 0.25,
+        "error": null
+      }
+    }
+  },
+  "conditioning": {
+    "kind": "video_tail",
+    "parent_run_id": "live-20260926-studio-first-1",
+    "parent_branch": "turn",
+    "parent_receipt_sha256": "e508bdb55feb8e2a19bff7f508374af07161112381448310fd883f39a07a3e4e",
+    "frame_sha256": [
+      "70b5ff68458fc2f3d069c5f08688a53bddc28ac48f079a1c3604dee48e2ad594",
+      "f5ef79d5a305eb63844ef506b5603a18e61e203adcd4e392dd873fb4c0dfb256",
+      "9f0ce7a7cbbebf950304c8b6f7f856870183fd961a7d7d3f41aa8fcae53709c4",
+      "2590071d90eea915975146d2c346e27bf3e2f819b303f2b61eb131a886623a83",
+      "d502911b5446a59cb8e45a4c6abd6982b0c09437a0065cda981fecd79a2531a9",
+      "476b9856dabbcf006fb1996cd0d71d47410ba7253fc853fca53d63464c668be7",
+      "6d0a018b821f25f5915f6e4e991452b8cc66d6f58cbfc9c8a72381248fa200a8",
+      "33521f48dbf699679fb1db5969f30d62ae97c4a232b0cf3cb0d4527b78e6a773",
+      "1288b0ac7278614ecd9bbfaece7c60fcca813cea3810c03f7a5d163989e152dc"
+    ],
+    "overlap_frames": 9
+  },
+  "branches": [
+    {
+      "name": "option_a",
+      "prompt": "The man runs into the wall and stops.",
+      "seed": 22,
+      "file": "option_a.mp4",
+      "sha256": "02a3917d16cfd169e6332a6c32e007befb8fa25f56419df6f64a6dc24354bc04",
+      "frames": 121,
+      "continuation_frames": [
+        {
+          "file": "option_a-tail-0.png",
+          "sha256": "9eb311dd686e63540b04bc31e9bbc3fb56345574dfc268e3b4769d4637e13f46"
+        },
+        {
+          "file": "option_a-tail-1.png",
+          "sha256": "039975eb42c0e3a52136a74a32b2d1123113610bbbdb65daee065ee7b27eddf5"
+        },
+        {
+          "file": "option_a-tail-2.png",
+          "sha256": "182f2b9e2d88bc02dcacd2bb9c16897db74d67a1d0ffce10ed275c1ca37fa06d"
+        },
+        {
+          "file": "option_a-tail-3.png",
+          "sha256": "fa1527865ac76f6ac5eb93488daa98326827533c20c7563147492979fc19e493"
+        },
+        {
+          "file": "option_a-tail-4.png",
+          "sha256": "a296a0c790f70e08f1969ddcaa89f35ab25df7734b8580b3e9e56b6dd2d7b796"
+        },
+        {
+          "file": "option_a-tail-5.png",
+          "sha256": "d9556df69fabd03ef912357cd43cb4860f236c4e337a25c7d3ee59df65323f12"
+        },
+        {
+          "file": "option_a-tail-6.png",
+          "sha256": "1fb1b2d1019c20adb8a6326f58f52fee5820e76f54324e4503ec083d0ff45864"
+        },
+        {
+          "file": "option_a-tail-7.png",
+          "sha256": "5813cc3639521afdea606d68fb49062555c592fa31fc6c4804d84d24b1309683"
+        },
+        {
+          "file": "option_a-tail-8.png",
+          "sha256": "06a0a8cb78d09d441ceaf512a144782e5cc9df85ef701ff5c3669bfa7c62785e"
+        }
+      ],
+      "playback_file": "option_a-new.mp4",
+      "playback_sha256": "15847428e699a03e1b61e24b38f782eaa54ac81474ca994700e5bd1e817ee3cf",
+      "playback_frames": 112
+    },
+    {
+      "name": "option_b",
+      "prompt": "The man turns around again and starts walking towards the camera.",
+      "seed": 22,
+      "file": "option_b.mp4",
+      "sha256": "109cdedb5176dc012ff5cd73101483b62243d006ab7de4969f30b3598674ee39",
+      "frames": 121,
+      "continuation_frames": [
+        {
+          "file": "option_b-tail-0.png",
+          "sha256": "cfa289897632614ab1d3bb8623133a20038f91053c6d0d5b6f1693ee42f94fa0"
+        },
+        {
+          "file": "option_b-tail-1.png",
+          "sha256": "6493ac514dd7b9b2e99b6df7b6ee6a2f134c65e7f2688ec140aa41ec4783a6c6"
+        },
+        {
+          "file": "option_b-tail-2.png",
+          "sha256": "d494100215c5e2dffad437965b8358c94a11b76e8e7c068948d6e61710a9c886"
+        },
+        {
+          "file": "option_b-tail-3.png",
+          "sha256": "9ae9753ee6353f3e783ae7aafaded39c9f99478539363a7c9dcb155d3b66918a"
+        },
+        {
+          "file": "option_b-tail-4.png",
+          "sha256": "826c1c19a54adf9ec445a300015fb08c51d7cbd83a569bff88459b56f2e431e0"
+        },
+        {
+          "file": "option_b-tail-5.png",
+          "sha256": "49d0008e6c0e875196921743887bf80e4c23bb55a9f5569611692b242cccc805"
+        },
+        {
+          "file": "option_b-tail-6.png",
+          "sha256": "f71adc88389e8b31f38e5a95210344104da07c06147a5f51c4712a4c5abc69de"
+        },
+        {
+          "file": "option_b-tail-7.png",
+          "sha256": "360041540aea51268f4e977b2c6094602ffe08323f84af3cfb928743a4339cbb"
+        },
+        {
+          "file": "option_b-tail-8.png",
+          "sha256": "1528995d5a3b01d93b73a687b770375970885e61bed3b84420e0b66bd71a7e09"
+        }
+      ],
+      "playback_file": "option_b-new.mp4",
+      "playback_sha256": "e3b25aa017005280ad835607b66de3e3e3a25a23638f0c2b6731cd0c9976414e",
+      "playback_frames": 112
+    },
+    {
+      "name": "option_c",
+      "prompt": "The man slips and falls.",
+      "seed": 22,
+      "file": "option_c.mp4",
+      "sha256": "0313f9eed8f0b043d27461cc064047741e25a29a0925bdc7f161bec445efed40",
+      "frames": 121,
+      "continuation_frames": [
+        {
+          "file": "option_c-tail-0.png",
+          "sha256": "beb28b8369ad3fb8a3ffa85fee69e65a65c43a8cd2a64dfbf8fc585d3634d3db"
+        },
+        {
+          "file": "option_c-tail-1.png",
+          "sha256": "646e010509c7f5bdc2a621322d075a1c6bcfd5ca85d24ad131a0cdd8551ceaaa"
+        },
+        {
+          "file": "option_c-tail-2.png",
+          "sha256": "730f493750516760fb65a4f9e3204833e9b667ad4381629b5933630add7c5312"
+        },
+        {
+          "file": "option_c-tail-3.png",
+          "sha256": "90d467fbac9254562102e63ab3b4f19fd3409a340bef19f2641720dc5614e543"
+        },
+        {
+          "file": "option_c-tail-4.png",
+          "sha256": "3374770644cc7d9b3767b56b6ac7524ec0c256c515c887074991e16725c82517"
+        },
+        {
+          "file": "option_c-tail-5.png",
+          "sha256": "92ad936bc1f29c444c9c575f4752ccef849ffa3c67463c5398af8ee6cefbe57b"
+        },
+        {
+          "file": "option_c-tail-6.png",
+          "sha256": "ef88d2d91187802bca768b3bf8a8d3b0909301e6f86b1c64eb6eb0287ddd1eb8"
+        },
+        {
+          "file": "option_c-tail-7.png",
+          "sha256": "029c10efd580ed9deeabbd7cfe6e958c40597262246e41fd90aa4a2a8609686d"
+        },
+        {
+          "file": "option_c-tail-8.png",
+          "sha256": "496167a33049f0d14d5228774cbb4a6f84c2ecf6aa9a82c63de6f9ac97f1b196"
+        }
+      ],
+      "playback_file": "option_c-new.mp4",
+      "playback_sha256": "d42970a483391c94aa3ff93f59408e56008ecaa4033381ffd5277d5484bc5016",
+      "playback_frames": 112
+    }
+  ],
+  "caveat": "Model-generated footage is not an authoritative success/failure or physics judgment.",
+  "generation": {
+    "forward_seconds": 22.433288426000004,
+    "frames_ready_seconds": 22.648871952000007,
+    "memory": {
+      "worker_before": {
+        "rank": 0,
+        "allocated_bytes": 48134975488,
+        "reserved_bytes": 49345986560,
+        "peak_allocated_bytes": 48134975488,
+        "peak_reserved_bytes": 49345986560,
+        "device_free_bytes": 141394051072,
+        "device_total_bytes": 191503138816
+      },
+      "worker_after": {
+        "rank": 0,
+        "allocated_bytes": 74404359680,
+        "reserved_bytes": 116366770176,
+        "peak_allocated_bytes": 98363342336,
+        "peak_reserved_bytes": 116366770176,
+        "device_free_bytes": 72366227456,
+        "device_total_bytes": 191503138816
+      },
+      "gpu_wide": {
+        "sampled_peak_used_mib": 113618,
+        "total_mib": 183359,
+        "samples": 78,
+        "sample_interval_seconds": 0.25,
+        "error": null
+      }
+    },
+    "forward_calls": 1,
+    "save_seconds": 7.652105147
+  }
+}

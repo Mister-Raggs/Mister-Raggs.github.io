@@ -1,0 +1,198 @@
+{
+  "status": "complete",
+  "run_id": "pilot-20260925-three-gates-b1-s22-1",
+  "profile": "decision-i2v-bf16-gates-b1",
+  "model_id": "fast-ltx23",
+  "model_path": "FastVideo/LTX-2.3-Distilled-Diffusers",
+  "model_snapshot_path": "/root/.cache/huggingface/hub/models--FastVideo--LTX-2.3-Distilled-Diffusers/snapshots/22b09fb1860a944bf10fa21f033d957d9ab9ec20",
+  "model_download_seconds": 0.00039100600000097074,
+  "container_image_ref": "ghcr.io/hao-ai-lab/fastvideo/fastvideo-dev@sha256:eedd147594af54e8cbdf46807c03b9b061202c345658422dbc38366d2c980f28",
+  "shape": {
+    "height": 512,
+    "width": 768,
+    "num_frames": 121,
+    "fps": 24
+  },
+  "conditioning_frames": 1,
+  "audio": "discarded; video-only quality gate",
+  "quantization": "dense-BF16",
+  "torch_compile": false,
+  "opening": null,
+  "branches": [
+    {
+      "name": "blue",
+      "prompt": "A continuous fixed-camera shot from behind the same red four-wheeled delivery robot. It steers LEFT across the courtyard, drives fully through the open BLUE gate on the LEFT, and continues along the garden passage beyond it. The yellow and green gates remain unused. No camera movement or cuts.",
+      "seed": 22,
+      "wall_seconds": 3.044206527,
+      "raw_frames": 121,
+      "raw_file": "gate-blue.mp4",
+      "raw_sha256": "015cb90113d36ec85955f427d0f5de81ca154232be794140c6e2073951a40140",
+      "memory": {
+        "worker_before": {
+          "rank": 0,
+          "allocated_bytes": 73230873088,
+          "reserved_bytes": 87222648832,
+          "peak_allocated_bytes": 73230873088,
+          "peak_reserved_bytes": 87222648832,
+          "device_free_bytes": 101933973504,
+          "device_total_bytes": 191503138816
+        },
+        "worker_after": {
+          "rank": 0,
+          "allocated_bytes": 73230873088,
+          "reserved_bytes": 87222648832,
+          "peak_allocated_bytes": 81804637184,
+          "peak_reserved_bytes": 87222648832,
+          "device_free_bytes": 101933973504,
+          "device_total_bytes": 191503138816
+        },
+        "gpu_wide": {
+          "sampled_peak_used_mib": 85420,
+          "total_mib": 183359,
+          "samples": 11,
+          "sample_interval_seconds": 0.25,
+          "error": null
+        }
+      }
+    },
+    {
+      "name": "yellow",
+      "prompt": "A continuous fixed-camera shot from behind the same red four-wheeled delivery robot. It drives STRAIGHT across the courtyard, passes fully through the open YELLOW gate in the CENTER, and continues along the garden passage beyond it. The blue and green gates remain unused. No camera movement or cuts.",
+      "seed": 22,
+      "wall_seconds": 3.1178683459999945,
+      "raw_frames": 121,
+      "raw_file": "gate-yellow.mp4",
+      "raw_sha256": "36253a6cfa436b02b871325c5d41b783a699ea3487314288751882d17bdfd7e9",
+      "memory": {
+        "worker_before": {
+          "rank": 0,
+          "allocated_bytes": 73230873088,
+          "reserved_bytes": 87222648832,
+          "peak_allocated_bytes": 73230873088,
+          "peak_reserved_bytes": 87222648832,
+          "device_free_bytes": 101933973504,
+          "device_total_bytes": 191503138816
+        },
+        "worker_after": {
+          "rank": 0,
+          "allocated_bytes": 73230905344,
+          "reserved_bytes": 87222648832,
+          "peak_allocated_bytes": 81804637184,
+          "peak_reserved_bytes": 87222648832,
+          "device_free_bytes": 101931876352,
+          "device_total_bytes": 191503138816
+        },
+        "gpu_wide": {
+          "sampled_peak_used_mib": 85422,
+          "total_mib": 183359,
+          "samples": 11,
+          "sample_interval_seconds": 0.25,
+          "error": null
+        }
+      }
+    },
+    {
+      "name": "green",
+      "prompt": "A continuous fixed-camera shot from behind the same red four-wheeled delivery robot. It steers RIGHT across the courtyard, drives fully through the open GREEN gate on the RIGHT, and continues along the garden passage beyond it. The blue and yellow gates remain unused. No camera movement or cuts.",
+      "seed": 22,
+      "wall_seconds": 3.1232779920000127,
+      "raw_frames": 121,
+      "raw_file": "gate-green.mp4",
+      "raw_sha256": "be7cdbc068b22d78586de73ad12a2036392160277c19d60a9605bb727dd96b84",
+      "memory": {
+        "worker_before": {
+          "rank": 0,
+          "allocated_bytes": 73230905344,
+          "reserved_bytes": 87222648832,
+          "peak_allocated_bytes": 73230905344,
+          "peak_reserved_bytes": 87222648832,
+          "device_free_bytes": 101931876352,
+          "device_total_bytes": 191503138816
+        },
+        "worker_after": {
+          "rank": 0,
+          "allocated_bytes": 73230905344,
+          "reserved_bytes": 87222648832,
+          "peak_allocated_bytes": 81804669440,
+          "peak_reserved_bytes": 87222648832,
+          "device_free_bytes": 101931876352,
+          "device_total_bytes": 191503138816
+        },
+        "gpu_wide": {
+          "sampled_peak_used_mib": 85422,
+          "total_mib": 183359,
+          "samples": 11,
+          "sample_interval_seconds": 0.25,
+          "error": null
+        }
+      }
+    }
+  ],
+  "model_load_seconds": 32.179759262000005,
+  "model_load_memory": {
+    "worker": {
+      "rank": 0,
+      "allocated_bytes": 48134975488,
+      "reserved_bytes": 49345986560,
+      "peak_allocated_bytes": 48134975488,
+      "peak_reserved_bytes": 49345986560,
+      "device_free_bytes": 141394051072,
+      "device_total_bytes": 191503138816
+    },
+    "gpu_wide": {
+      "sampled_peak_used_mib": 47788,
+      "total_mib": 183359,
+      "samples": 114,
+      "sample_interval_seconds": 0.25,
+      "error": null
+    }
+  },
+  "source_sha256": "522380d9a7fd50ef14bb3682648668753720adc10a0a437bece4fdb10bb8b8a1",
+  "latent_preparation_sha256": "c96aaa8331079197edf3470b585902eaddd5e03efeb965915212f01c15978cdf",
+  "decision_frame": {
+    "file": "decision_frame.png",
+    "sha256": "c4b3b4ee348009d2238cab5470c315bc13880f33af347f2ad20ed09ad4afd16d"
+  },
+  "denoise_steps": 8,
+  "refine_steps": 3,
+  "gate_spec": {
+    "seed": 22,
+    "branches": [
+      "blue",
+      "yellow",
+      "green"
+    ],
+    "conditioning": "one identical start image only; no destination keyframes",
+    "execution": "three serial B=1 saved generations after one warmup"
+  },
+  "warmup": {
+    "wall_seconds": 13.043850960999997,
+    "memory": {
+      "worker_before": {
+        "rank": 0,
+        "allocated_bytes": 48134975488,
+        "reserved_bytes": 49345986560,
+        "peak_allocated_bytes": 48134975488,
+        "peak_reserved_bytes": 49345986560,
+        "device_free_bytes": 141394051072,
+        "device_total_bytes": 191503138816
+      },
+      "worker_after": {
+        "rank": 0,
+        "allocated_bytes": 73230873088,
+        "reserved_bytes": 87222648832,
+        "peak_allocated_bytes": 81217893888,
+        "peak_reserved_bytes": 87222648832,
+        "device_free_bytes": 101933973504,
+        "device_total_bytes": 191503138816
+      },
+      "gpu_wide": {
+        "sampled_peak_used_mib": 85420,
+        "total_mib": 183359,
+        "samples": 47,
+        "sample_interval_seconds": 0.25,
+        "error": null
+      }
+    }
+  }
+}

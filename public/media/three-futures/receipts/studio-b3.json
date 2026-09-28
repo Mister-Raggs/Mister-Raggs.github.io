@@ -1,0 +1,140 @@
+{
+  "status": "complete",
+  "run_id": "pilot-20260926-studio-actions-b3-s22-1",
+  "model_repo": "FastVideo/LTX-2.3-Distilled-Diffusers",
+  "model_revision": "22b09fb1860a944bf10fa21f033d957d9ab9ec20",
+  "model_snapshot_path": "/__modal/volumes/vo-Twr4d7cslHYVjpVWn3oxRc/hub/models--FastVideo--LTX-2.3-Distilled-Diffusers/snapshots/22b09fb1860a944bf10fa21f033d957d9ab9ec20",
+  "source_image": "studio-neutral.png",
+  "source_sha256": "d61d85626502abae063b3ac6b0f7d910a8fd0c56a0da9ba5d6e4025b0bd0fce0",
+  "container_image_ref": "ghcr.io/hao-ai-lab/fastvideo/fastvideo-dev@sha256:eedd147594af54e8cbdf46807c03b9b061202c345658422dbc38366d2c980f28",
+  "shape": {
+    "height": 512,
+    "width": 768,
+    "num_frames": 121,
+    "fps": 24
+  },
+  "dtype": "bfloat16",
+  "quantization": "none",
+  "denoise_steps": 8,
+  "refine_steps": 3,
+  "guidance_scale": 1.0,
+  "seed": 22,
+  "batch_size": 3,
+  "conditioning": "identical frame-0 image and seed for all branches; no destination or pose controls",
+  "branches": [
+    {
+      "name": "jump",
+      "prompt": "One uninterrupted fixed-camera full-body shot of the same person in the red jacket. They bend their knees, spring straight upward into repeated small jumps in place, with both shoes visibly leaving the studio floor each time, then land on both feet. They stay centered in the same spot; the plain background and camera remain still.",
+      "seed": 22,
+      "file": "jump.mp4",
+      "sha256": "d70ff6ddd6a217196160218f4f84ed36215d0019e2dfe2f04350c38aec542c4f",
+      "frames": 121
+    },
+    {
+      "name": "crouch",
+      "prompt": "One uninterrupted fixed-camera full-body shot of the same person in the red jacket. They bend both knees and lower into a deep crouch, with their hips close to their heels and both feet planted on the studio floor. They remain low through the end of the shot. The plain background and camera remain still.",
+      "seed": 22,
+      "file": "crouch.mp4",
+      "sha256": "2dc76f23b49905d8c4c2fcebbf4760ef20e8786e86112cd9da6b019aedb8b3c1",
+      "frames": 121
+    },
+    {
+      "name": "turn",
+      "prompt": "One uninterrupted fixed-camera full-body shot of the same person in the red jacket. They rotate their entire body in place until their back faces the camera, showing the back of the red jacket, then remain facing away through the end of the shot. Their shoes stay near the same floor spot; the plain background and camera remain still.",
+      "seed": 22,
+      "file": "turn.mp4",
+      "sha256": "10169447a79a17447665289637332693ddd0e956f4824c5c1b3e1027b6009c55",
+      "frames": 121
+    }
+  ],
+  "visual_gates": {
+    "jump": "Both shoes visibly leave the floor during at least one jump; no crop.",
+    "crouch": "Hips lower into a clear squat and remain low near the end.",
+    "turn": "Whole body rotates until the back of the red jacket faces camera near the end."
+  },
+  "caveat": "A miss in this B=3 test requires a matched B=1 diagnostic before blaming the model alone.",
+  "model_load_seconds": 71.780655995,
+  "model_load_memory": {
+    "worker": {
+      "rank": 0,
+      "allocated_bytes": 48134975488,
+      "reserved_bytes": 49345986560,
+      "peak_allocated_bytes": 48134975488,
+      "peak_reserved_bytes": 49345986560,
+      "device_free_bytes": 141394051072,
+      "device_total_bytes": 191503138816
+    },
+    "gpu_wide": {
+      "sampled_peak_used_mib": 47788,
+      "total_mib": 183359,
+      "samples": 254,
+      "sample_interval_seconds": 0.25,
+      "error": null
+    }
+  },
+  "warmup": {
+    "forward_seconds": 18.708525619,
+    "frames_ready_seconds": 18.783249524,
+    "memory": {
+      "worker_before": {
+        "rank": 0,
+        "allocated_bytes": 48134975488,
+        "reserved_bytes": 49345986560,
+        "peak_allocated_bytes": 48134975488,
+        "peak_reserved_bytes": 49345986560,
+        "device_free_bytes": 141394051072,
+        "device_total_bytes": 191503138816
+      },
+      "worker_after": {
+        "rank": 0,
+        "allocated_bytes": 74404359680,
+        "reserved_bytes": 115762790400,
+        "peak_allocated_bytes": 98363342336,
+        "peak_reserved_bytes": 115762790400,
+        "device_free_bytes": 72970207232,
+        "device_total_bytes": 191503138816
+      },
+      "gpu_wide": {
+        "sampled_peak_used_mib": 113042,
+        "total_mib": 183359,
+        "samples": 67,
+        "sample_interval_seconds": 0.25,
+        "error": null
+      }
+    }
+  },
+  "batched": {
+    "size": 3,
+    "forward_calls": 1,
+    "forward_seconds": 7.325166003999996,
+    "frames_ready_seconds": 7.367166818000001,
+    "memory": {
+      "worker_before": {
+        "rank": 0,
+        "allocated_bytes": 74404359680,
+        "reserved_bytes": 115762790400,
+        "peak_allocated_bytes": 74404359680,
+        "peak_reserved_bytes": 115762790400,
+        "device_free_bytes": 72970207232,
+        "device_total_bytes": 191503138816
+      },
+      "worker_after": {
+        "rank": 0,
+        "allocated_bytes": 74404621824,
+        "reserved_bytes": 115762790400,
+        "peak_allocated_bytes": 100123834368,
+        "peak_reserved_bytes": 115762790400,
+        "device_free_bytes": 72970207232,
+        "device_total_bytes": 191503138816
+      },
+      "gpu_wide": {
+        "sampled_peak_used_mib": 113042,
+        "total_mib": 183359,
+        "samples": 27,
+        "sample_interval_seconds": 0.25,
+        "error": null
+      }
+    },
+    "save_seconds": 2.038936423999999
+  }
+}

@@ -1,0 +1,222 @@
+{
+  "status": "complete",
+  "run_id": "pilot-20260927-obstacle-b3-s22-1",
+  "model_repo": "FastVideo/LTX-2.3-Distilled-Diffusers",
+  "model_revision": "22b09fb1860a944bf10fa21f033d957d9ab9ec20",
+  "container_image_ref": "ghcr.io/hao-ai-lab/fastvideo/fastvideo-dev@sha256:eedd147594af54e8cbdf46807c03b9b061202c345658422dbc38366d2c980f28",
+  "shape": {
+    "height": 512,
+    "width": 768,
+    "num_frames": 121,
+    "fps": 24
+  },
+  "dtype": "bfloat16",
+  "quantization": "none",
+  "denoise_steps": 8,
+  "refine_steps": 3,
+  "guidance_scale": 1.0,
+  "batch_size": 3,
+  "seed": 22,
+  "model_load": {
+    "seconds": 84.318182753,
+    "memory": {
+      "worker": {
+        "rank": 0,
+        "allocated_bytes": 48134975488,
+        "reserved_bytes": 49345986560,
+        "peak_allocated_bytes": 48134975488,
+        "peak_reserved_bytes": 49345986560,
+        "device_free_bytes": 141261930496,
+        "device_total_bytes": 191503138816
+      },
+      "gpu_wide": {
+        "sampled_peak_used_mib": 47914,
+        "total_mib": 183359,
+        "samples": 295,
+        "sample_interval_seconds": 0.25,
+        "error": null
+      }
+    }
+  },
+  "conditioning": {
+    "kind": "image",
+    "source_sha256": "e7054ec42d88c6bd8f0ffdbd1737dbe3d0480065a37d6e81a8822519e91ed0fb",
+    "source_file": "source.png"
+  },
+  "branches": [
+    {
+      "name": "jump",
+      "prompt": "One uninterrupted locked-off full-body shot of the same man in the red jacket in the gray studio. The single bright yellow padded floor cylinder rolls straight from the foreground toward his feet and crosses his original standing position during the shot. As it approaches, he bends his knees and jumps vertically in place, with both shoes clearly above the cylinder when it reaches his position, then lands near the same spot. The camera stays fixed; the studio, his identity, and the yellow cylinder remain visible and consistent.",
+      "seed": 22,
+      "file": "jump.mp4",
+      "sha256": "8ed2b023a0d2413ade66343c61d13f443c9bbb4f801440f10b959096fb3b46aa",
+      "frames": 121,
+      "continuation_frames": [
+        {
+          "file": "jump-tail-0.png",
+          "sha256": "e81484f18c3168a02dd3a3bbabee5b1a4191d87f333025ad10b9cba1c5972575"
+        },
+        {
+          "file": "jump-tail-1.png",
+          "sha256": "87043c53cdab31c017bb3d3653799febf6fdf2ec3c35d965a23cfa0288720b96"
+        },
+        {
+          "file": "jump-tail-2.png",
+          "sha256": "8d5cc67afcc930836ca37e4658616017b97b785935aaae68142810ba1684ba1f"
+        },
+        {
+          "file": "jump-tail-3.png",
+          "sha256": "ca53a83a535592f1f2dcf1f9d9c4128aea350fe096ca4f24ce6353d39734e890"
+        },
+        {
+          "file": "jump-tail-4.png",
+          "sha256": "46931f268fc4a728d63d8c740af95c5c61cc41eda9fd4ac6ab4ee1b7c1ee19f1"
+        },
+        {
+          "file": "jump-tail-5.png",
+          "sha256": "cb759e60db6fb2fe21aa5bfe03177dc10a20c4eb67ccc14a121d7edd9acea850"
+        },
+        {
+          "file": "jump-tail-6.png",
+          "sha256": "6b1e63cc859247dd5a87579aeb605fd759018dce377bcee40d16af5c32455047"
+        },
+        {
+          "file": "jump-tail-7.png",
+          "sha256": "28ce4d4cda973f897d35a6c1251790acae35d3872ce837b7bb45f4a49e571463"
+        },
+        {
+          "file": "jump-tail-8.png",
+          "sha256": "b5f1c5db9253d1f9ea4b8feaf60e134d4756a1fbb3cb8271cb220ea36175fccc"
+        }
+      ]
+    },
+    {
+      "name": "crouch",
+      "prompt": "One uninterrupted locked-off full-body shot of the same man in the red jacket in the gray studio. The single bright yellow padded floor cylinder rolls straight from the foreground toward his feet and crosses his original standing position during the shot. As it approaches, he lowers into a deep crouch and stays at his original floor spot with both shoes planted while the cylinder reaches him. The camera stays fixed; the studio, his identity, and the yellow cylinder remain visible and consistent.",
+      "seed": 22,
+      "file": "crouch.mp4",
+      "sha256": "a517e28e6208a8eaa788638829d9ae9349fc57373996ba181bc434dceba04599",
+      "frames": 121,
+      "continuation_frames": [
+        {
+          "file": "crouch-tail-0.png",
+          "sha256": "8e4f8912dbf94ab6b1bbdd5ee2638d209a050142333d09b466465987487c97dc"
+        },
+        {
+          "file": "crouch-tail-1.png",
+          "sha256": "d0a879cd31bbe86e4a7126a4c82fdecd444a171ee950a6c63549a1978ffe6ca2"
+        },
+        {
+          "file": "crouch-tail-2.png",
+          "sha256": "8ccd77d1019d94ca9ecea13d26d231b2a5ebdd0f2ea9abe46fca1bfd2912cf1c"
+        },
+        {
+          "file": "crouch-tail-3.png",
+          "sha256": "d694422c771d60aa2d8a417903ef08325a1c7079beb608a4de1bf5ee4e628d18"
+        },
+        {
+          "file": "crouch-tail-4.png",
+          "sha256": "53be97eea6a5186d05606b5a6668404696786edc3a2b052ac9282d5cef3d0afb"
+        },
+        {
+          "file": "crouch-tail-5.png",
+          "sha256": "775ef1514c938255f9aed2d0e8f28af47b1a1eb19c9393f72cc2fdd61a7db41a"
+        },
+        {
+          "file": "crouch-tail-6.png",
+          "sha256": "32d9b3faa9d54f67fd7c0d8a1e90c8452ea13fd869d4b1f2dbd25ab6cb9748a2"
+        },
+        {
+          "file": "crouch-tail-7.png",
+          "sha256": "5b28391d315f310c6d293dac89b74c552447112010964d890bd8d3a360388d04"
+        },
+        {
+          "file": "crouch-tail-8.png",
+          "sha256": "942c68c38b5387cc98bced11c402c2a7314c8a472f8aafaf652446592fe8f73a"
+        }
+      ]
+    },
+    {
+      "name": "turn",
+      "prompt": "One uninterrupted locked-off full-body shot of the same man in the red jacket in the gray studio. The single bright yellow padded floor cylinder rolls straight from the foreground toward his feet and crosses his original standing position during the shot. As it approaches, he turns his whole body in place until his back faces the camera, keeping both shoes near their original floor spot while the cylinder reaches him. The camera stays fixed; the studio, his identity, and the yellow cylinder remain visible and consistent.",
+      "seed": 22,
+      "file": "turn.mp4",
+      "sha256": "ceecb78db6b014e809da02ff306d3d9c2b5ec54f87fab99c6dc0a521a419cb2f",
+      "frames": 121,
+      "continuation_frames": [
+        {
+          "file": "turn-tail-0.png",
+          "sha256": "d6cc0fde97203e456335083b0acfc2ef44f829d9c3a1877ac140ee6cecab968c"
+        },
+        {
+          "file": "turn-tail-1.png",
+          "sha256": "ca273044ddeddd357f74d2f096789b600a404de6da50f21067990123d31a659c"
+        },
+        {
+          "file": "turn-tail-2.png",
+          "sha256": "38f0ec9769374cda76be6cd6b47f802014cc1fc76819bdd82e309cd5b8fdeb2a"
+        },
+        {
+          "file": "turn-tail-3.png",
+          "sha256": "a02b52cbb441a7fe41edc61c9f9df4a32c212e2d795e84b5d2387762ec959920"
+        },
+        {
+          "file": "turn-tail-4.png",
+          "sha256": "b32380de8a318f72273f30642e7d1b39cead60b795a81ce917402d9480d4f5aa"
+        },
+        {
+          "file": "turn-tail-5.png",
+          "sha256": "383b2222d4119caa44cc6eaa5ae28dfd56e24070aef9654de4bf8b9fe3c2e8c9"
+        },
+        {
+          "file": "turn-tail-6.png",
+          "sha256": "661459d1231ec661530dfd0c0b5e5079639e69426e26ab9605df20dba30c5824"
+        },
+        {
+          "file": "turn-tail-7.png",
+          "sha256": "cfb55a40f10b9d8cc17575ec01fb39c52c101f67d9f1800debf11546a22c16e6"
+        },
+        {
+          "file": "turn-tail-8.png",
+          "sha256": "d6cb60194bd97ac97d372daadde05ae1dd31ae6bbaed503078f28e5e56062548"
+        }
+      ]
+    }
+  ],
+  "caveat": "Model-generated footage is not an authoritative success/failure or physics judgment.",
+  "generation": {
+    "forward_seconds": 27.773476841000004,
+    "frames_ready_seconds": 27.982358595000008,
+    "memory": {
+      "worker_before": {
+        "rank": 0,
+        "allocated_bytes": 48134975488,
+        "reserved_bytes": 49345986560,
+        "peak_allocated_bytes": 48134975488,
+        "peak_reserved_bytes": 49345986560,
+        "device_free_bytes": 141261930496,
+        "device_total_bytes": 191503138816
+      },
+      "worker_after": {
+        "rank": 0,
+        "allocated_bytes": 74404359680,
+        "reserved_bytes": 116366770176,
+        "peak_allocated_bytes": 98363342336,
+        "peak_reserved_bytes": 116366770176,
+        "device_free_bytes": 72234106880,
+        "device_total_bytes": 191503138816
+      },
+      "gpu_wide": {
+        "sampled_peak_used_mib": 113744,
+        "total_mib": 183359,
+        "samples": 97,
+        "sample_interval_seconds": 0.25,
+        "error": null
+      }
+    },
+    "forward_calls": 1,
+    "save_seconds": 6.229476850999987
+  },
+  "experiment": "one-obstacle-three-actions-v1",
+  "gate_spec_sha256": "212ada7f6a3a7b1b94bfa5d3bea15dbef310f0f0cbd8ef3f824ae0ae714e4cc6"
+}
