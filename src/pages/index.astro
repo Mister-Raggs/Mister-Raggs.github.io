@@ -103,13 +103,13 @@ const work = await Promise.all(
         <section class="space-y-4">
           <article class="space-y-4">
             <p class="animate">
-              I'm a software engineer who likes making systems faster, cheaper, and easier to run. Most of my work starts the same way: profile it, find where the time actually goes, and ship a fix with a number attached. That's taken me from data pipelines and backend services down into inference, compilers, and GPUs.
+              I'm a software engineer and I like making systems faster, cheaper and more accessible. Usually that starts with profiling, figuring out where the time is actually going, and fixing that. I started out on data pipelines and backend services and have slowly moved down the stack into inference, compilers and GPUs.
             </p>
             <p class="animate">
-              Right now I work on <a href="/fastvideo/">FastVideo</a> at UCSD's Hao AI Lab, with 21 merged PRs so far. Some highlights: <strong>15.6%</strong> off Cosmos 2.5 latency, a <strong>24%</strong> speedup from <code>torch.compile</code> that was sitting unused, 4-bit inference on NVIDIA's DGX Spark, and Cosmos Predict 2.5 continuation, which lets a generated scene keep going from where it left off.
+              Right now I'm at UCSD's Hao AI Lab working on <a href="/fastvideo/">FastVideo</a>, an open source video generation framework, with 21 PRs merged so far. A lot of my recent work has been on the Cosmos Predict 2.5 models. I added the distilled versions, which only need 4 steps, and hooked them into DreamVerse so a scene keeps going from its last frame. I also got FP4 attention running on the DGX Spark. The kernels were only built for the RTX 5090, but they work on the Spark too, so the full 4-bit path runs there now. Before that, I made the sparse attention kernels <strong>18-22%</strong> faster because the best setting was outside what the autotuner was searching.
             </p>
             <p class="animate">
-              That last one is why I find world models exciting. If a model can learn how the world moves, you can build on top of it: scenes that respond to you, places you can explore, ideas you can test before building them for real. A lot of what makes that possible is the unglamorous part, getting these models fast enough to actually use.
+              Cosmos is a big part of why I got into world models. If a model can mirror how the world actually behaves, you can build some really cool stuff on top of it. That only works if these models are fast and cheap enough to run, which is the part I like working on.
             </p>
           </article>
         </section>
