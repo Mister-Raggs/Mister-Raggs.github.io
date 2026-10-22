@@ -103,13 +103,13 @@ const work = await Promise.all(
         <section class="space-y-4">
           <article class="space-y-4">
             <p class="animate">
-              I'm a software engineer drawn to operational problems — things that are slow, manual, or breaking under load. Most of my work is the same shape: profile it, find the friction, ship a measured fix. Lately that's pulled me toward AI systems, where the same reliability and latency problems show up but the tooling is younger — and steadily further down the stack, from pipelines and services into inference, compilers, and GPU kernels.
+              I'm a software engineer who likes making systems faster, cheaper, and easier to run. Most of my work starts the same way: profile it, find where the time actually goes, and ship a fix with a number attached. That's taken me from data pipelines and backend services down into inference, compilers, and GPUs.
             </p>
             <p class="animate">
-              The friction is usually something quiet — a deferred cost being misattributed, a default nobody benchmarked, a tool whose own numbers are wrong. At the Hao AI Lab I work on FastVideo, an open-source video-diffusion framework: I cut Cosmos 2.5 inference latency <strong>15.6%</strong> after finding a "slow stage" that was really absorbing a half-gigabyte GPU→CPU transfer, built a model-agnostic caching module that takes <strong>23%</strong> off Wan2.1 at matched quality, and ported the framework to NVIDIA's DGX Spark. Same instinct outside the lab — a Go log engine doing 42M rows/hour with sub-millisecond lookups, and an ML anomaly-detection pipeline that grades its own output.
+              Right now I work on <a href="/fastvideo/">FastVideo</a> at UCSD's Hao AI Lab, with 21 merged PRs so far. Some highlights: <strong>15.6%</strong> off Cosmos 2.5 latency, attention that stays fast under <code>torch.compile</code>, 4-bit inference on NVIDIA's DGX Spark, and Cosmos Predict 2.5 continuation, which lets a generated scene keep going from where it left off.
             </p>
             <p class="animate">
-              Most recently I've been testing whether that caching work transfers out of video and into robotics — Factory Diffusion measures adaptive residual caching on a LeRobot diffusion policy, trading latency against closed-loop task success. What I enjoy is the impact side of it — making systems faster, cheaper, and more accessible.
+              That last one is why I find world models exciting. If a model can learn how the world moves, you can build on top of it: scenes that respond to you, places you can explore, ideas you can test before building them for real. A lot of what makes that possible is the unglamorous part, getting these models fast enough to actually use.
             </p>
           </article>
         </section>
