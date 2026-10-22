@@ -1,6 +1,6 @@
 ---
 title: "OneBusAway / maglev: OSS Contributions"
-description: "Upstream contributions to OneBusAway's Go REST API — mutex contention profiling under k6 load, real-time detector fixes, and a versioned San Diego GTFS ground-truth store."
+description: "9 merged fixes to OneBusAway's Go transit API, each from a spec-conformance bug I found and filed: query radius, sort order, result caps, route-type filtering, and reference handling."
 date: "Jul 14 2026"
 repoURL: "https://github.com/OneBusAway/maglev"
 tags: ["Go", "Distributed Systems", "Observability"]
@@ -14,7 +14,19 @@ I've been contributing upstream fixes, load-test profiling, and local developmen
 
 ## Shipped
 
-- **`StaleDetector` symmetric comparison fix** ([bfaa80c](https://github.com/OneBusAway/maglev/commit/bfaa80c)) — the stale real-time-data detector was doing an asymmetric time comparison that under- or over-flagged staleness depending on which timestamp arrived first. Symmetric comparison + a `trip-details` endpoint guard test to prevent regression.
+Nine merged fixes, each from a spec-conformance bug I found and filed against the OneBusAway API spec:
+
+- [#1173](https://github.com/OneBusAway/maglev/pull/1173): `StaleDetector` compared timestamps asymmetrically, so staleness flags depended on which one arrived first
+- [#1183](https://github.com/OneBusAway/maglev/pull/1183): `routes-for-agency` exposed pagination the spec doesn't support
+- [#1193](https://github.com/OneBusAway/maglev/pull/1193): `routes-for-agency` ignored `includeReferences=false`
+- [#1252](https://github.com/OneBusAway/maglev/pull/1252): `stops-for-location` didn't clamp `maxCount` above the cap
+- [#1253](https://github.com/OneBusAway/maglev/pull/1253): `stops-for-location` sorted on the raw stop ID instead of the combined `agency_stop` ID the spec requires
+- [#1270](https://github.com/OneBusAway/maglev/pull/1270): `stops-for-location` mishandled stop-code queries
+- [#1272](https://github.com/OneBusAway/maglev/pull/1272): route-type searches applied the result cap before the service filter, dropping valid matches
+- [#1351](https://github.com/OneBusAway/maglev/pull/1351): `stops-for-location` ignored `includeReferences`
+- [#1352](https://github.com/OneBusAway/maglev/pull/1352): `stops-for-location` rejected time formats the spec documents
+
+[All my maglev PRs →](https://github.com/OneBusAway/maglev/pulls?q=is%3Apr+author%3AMister-Raggs)
 
 ## In progress
 

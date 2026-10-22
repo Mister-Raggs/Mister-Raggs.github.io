@@ -106,7 +106,7 @@ const work = await Promise.all(
               I'm a software engineer who likes making systems faster, cheaper, and easier to run. Most of my work starts the same way: profile it, find where the time actually goes, and ship a fix with a number attached. That's taken me from data pipelines and backend services down into inference, compilers, and GPUs.
             </p>
             <p class="animate">
-              Right now I work on <a href="/fastvideo/">FastVideo</a> at UCSD's Hao AI Lab, with 21 merged PRs so far. Some highlights: <strong>15.6%</strong> off Cosmos 2.5 latency, attention that stays fast under <code>torch.compile</code>, 4-bit inference on NVIDIA's DGX Spark, and Cosmos Predict 2.5 continuation, which lets a generated scene keep going from where it left off.
+              Right now I work on <a href="/fastvideo/">FastVideo</a> at UCSD's Hao AI Lab, with 21 merged PRs so far. Some highlights: <strong>15.6%</strong> off Cosmos 2.5 latency, a <strong>24%</strong> speedup from <code>torch.compile</code> that was sitting unused, 4-bit inference on NVIDIA's DGX Spark, and Cosmos Predict 2.5 continuation, which lets a generated scene keep going from where it left off.
             </p>
             <p class="animate">
               That last one is why I find world models exciting. If a model can learn how the world moves, you can build on top of it: scenes that respond to you, places you can explore, ideas you can test before building them for real. A lot of what makes that possible is the unglamorous part, getting these models fast enough to actually use.

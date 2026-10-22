@@ -6,4 +6,4 @@ dateEnd: "Present"
 tags: ["Python", "PyTorch", "Diffusers", "LoRA", "Observability"]
 ---
 
-Inference optimization on [FastVideo](https://github.com/hao-ai-lab/FastVideo) — EasyCache, a model-agnostic residual-skip cache that takes 23% off Wan2.1 wall time at SSIM 0.946; a serving-path split that cut a Cosmos 2.5 profile 26.2%; a torch.compile/FlashAttention traceability path for training; and a port to NVIDIA's DGX Spark. 21 merged PRs so far — [see what they do →](/fastvideo/)
+Inference performance on FastVideo, an open-source video-generation framework (4.5k stars). 21 merged PRs, plus EasyCache, a model-agnostic step cache that takes 23% off Wan2.1. [See what the PRs do →](/fastvideo/)
