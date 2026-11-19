@@ -3,7 +3,7 @@ import PageLayout from "@layouts/PageLayout.astro";
 import Container from "@components/Container.astro";
 import BackToPrev from "@components/BackToPrev.astro";
 
-// Numbers below come from each PR's own description. Status as of Oct 2026 —
+// Numbers below come from each PR's own description. Status as of Nov 2026 —
 // refresh with: gh pr list -R hao-ai-lab/FastVideo --author Mister-Raggs --state all
 const REPO = "https://github.com/hao-ai-lab/FastVideo";
 const ALL_PRS = `${REPO}/pulls?q=is%3Apr+author%3AMister-Raggs`;
@@ -66,6 +66,12 @@ const sections: Section[] = [
         impact: "Catches failures generic consistency scores miss, like frozen or looping output in long videos." },
       { prs: [1321], status: "merged", title: "FLUX.1-dev port fixes", impact: "Native RoPE, parity tests, and an SSIM reference." },
       { prs: [1339], status: "merged", title: "Z-Image port hardening", impact: "Strict weight loading and bf16 encoder parity, with a per-layer diagnostic separating drift from bugs." },
+      { prs: [2069], status: "merged", title: "Stop preprocessing from keeping every decoded clip in memory",
+        impact: "Each 720p clip was being held at 1.2 GB, so a 400-clip run hit the OOM killer at clip 73. Stored batches no longer keep pixels around." },
+      { prs: [2068], status: "merged", title: "PyAV fallback for video decoding in preprocessing",
+        impact: "torchvision 0.27 dropped read_video, which broke preprocessing on the first clip." },
+      { prs: [2070], status: "merged", title: "Correct parameter names in merged-LoRA exports",
+        impact: "When LoRA was enabled after loading, exported checkpoints kept FastVideo's internal names instead of the Hugging Face ones." },
       { prs: [1759], status: "merged", title: "Fall back when a large pinned-memory allocation fails", impact: "Degrades gracefully instead of crashing on long, high-resolution outputs." },
     ],
   },
@@ -74,7 +80,7 @@ const sections: Section[] = [
 
 <PageLayout
   title="FastVideo contributions"
-  description="21 merged PRs to FastVideo, an open-source video-generation framework (4.5k stars): inference performance, torch.compile and FlashAttention, and the DGX Spark port."
+  description="24 merged PRs to FastVideo, an open-source video-generation framework (4.5k stars): inference performance, torch.compile and FlashAttention, and the DGX Spark port."
 >
   <Container>
     <div class="animate">
@@ -87,7 +93,7 @@ const sections: Section[] = [
         <a href={REPO} class="underline underline-offset-2 decoration-black/15 dark:decoration-white/30 hover:text-black dark:hover:text-white">FastVideo</a>
         is an open-source framework for accelerated video generation, covering inference and post-training (4.5k stars).
         I've worked on it at UCSD's Hao AI Lab since January 2026, mostly on inference performance: profile where the time
-        actually goes, fix it, and gate every change on output quality. <strong>21 of my 32 PRs are merged.</strong>
+        actually goes, fix it, and gate every change on output quality. <strong>24 of my 35 PRs are merged.</strong>
       </p>
     </div>
 
@@ -119,7 +125,7 @@ const sections: Section[] = [
     </div>
 
     <p class="animate mt-12 text-sm">
-      <a href={ALL_PRS} target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 decoration-black/15 dark:decoration-white/30 hover:text-black dark:hover:text-white">All 32 PRs on GitHub →</a>
+      <a href={ALL_PRS} target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 decoration-black/15 dark:decoration-white/30 hover:text-black dark:hover:text-white">All 35 PRs on GitHub →</a>
     </p>
   </Container>
 </PageLayout>
