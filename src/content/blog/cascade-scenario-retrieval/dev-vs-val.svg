@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 330" role="img" aria-label="Three ideas my small test rejected all passed on unseen scenarios">
+<style>
+  .ink{fill:#1f2328}.quiet{fill:#59636e}.axis{stroke:#9198a1}.grid{stroke:#d1d9e0}.muted{fill:#b7bdc4;stroke:#b7bdc4}
+  .accent{fill:#2f6fd6;stroke:#2f6fd6}.ref{stroke:#9198a1}
+  @media (prefers-color-scheme: dark){.ink{fill:#e6edf3}.quiet{fill:#9198a1}.axis{stroke:#656c76}.grid{stroke:#30363d}
+  .muted{fill:#656c76;stroke:#656c76}.accent{fill:#5b9cf6;stroke:#5b9cf6}.ref{stroke:#656c76}}
+  text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
+</style>
+<text class="ink" x="20" y="30" font-size="16" font-weight="600">Three ideas my small test rejected all passed on unseen scenarios</text>
+<text class="quiet" x="20" y="50" font-size="12">R-Precision gain (mean of 6 fold × seed cells) and how many cells improved</text>
+<rect class="muted" x="20" y="64" width="12" height="12" rx="2"/><text class="quiet" x="38" y="74" font-size="12">Development queries (64 scenarios)</text>
+<rect class="accent" x="280" y="64" width="12" height="12" rx="2"/><text class="ink" x="298" y="74" font-size="12">Validation queries (298 unseen scenarios)</text>
+<line class="axis" x1="313.3" x2="313.3" y1="96" y2="296"/>
+<line class="ref" x1="345.0" x2="345.0" y1="96" y2="296" stroke-dasharray="4 4"/>
+<text class="quiet" x="345.0" y="314" font-size="12" text-anchor="middle">Adoption gate +0.001</text>
+<text class="ink" x="20" y="128" font-size="13" font-weight="600">Property atoms</text>
+<rect class="muted" x="303.8" y="104" width="9.5" height="16"/>
+<text class="quiet" x="353.0" y="116" font-size="12">−0.0003 · 3/6 cells</text>
+<rect class="accent" x="313.3" y="126" width="186.8" height="16"/>
+<text class="ink" x="508.2" y="138" font-size="12" font-weight="600">+0.0059 · 6/6 cells</text>
+<text class="ink" x="20" y="200" font-size="13" font-weight="600">Fine-tuned verifier</text>
+<rect class="muted" x="313.3" y="176" width="44.3" height="16"/>
+<text class="quiet" x="365.7" y="188" font-size="12">+0.0014 · 4/6 cells</text>
+<rect class="accent" x="313.3" y="198" width="278.7" height="16"/>
+<text class="ink" x="600.0" y="210" font-size="12" font-weight="600">+0.0088 · 6/6 cells</text>
+<text class="ink" x="20" y="272" font-size="13" font-weight="600">Top 50 candidates</text>
+<rect class="muted" x="313.3" y="248" width="12.7" height="16"/>
+<text class="quiet" x="353.0" y="260" font-size="12">+0.0004 · 4/6 cells</text>
+<rect class="accent" x="313.3" y="270" width="224.8" height="16"/>
+<text class="ink" x="546.2" y="282" font-size="12" font-weight="600">+0.0071 · 6/6 cells</text>
+</svg>
