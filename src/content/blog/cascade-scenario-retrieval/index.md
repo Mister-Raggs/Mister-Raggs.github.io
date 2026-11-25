@@ -1,6 +1,6 @@
 ---
 title: "From below the baseline to 0.434: retrieving driving scenarios on one GPU"
-date: 2026-11-29
+date: 2026-11-25
 description: "Five submissions to the CASCADE causal scenario retrieval challenge: what I built, why, what didn't work, and the evaluation mistake that nearly cost me my biggest gains."
 tags: [machine-learning, vision-language-models, autonomous-driving, retrieval, evaluation]
 ---

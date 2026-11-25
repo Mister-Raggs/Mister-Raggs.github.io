@@ -1,7 +1,7 @@
 ---
 title: "CASCADE: Driving Scenario Retrieval"
 description: "Text-to-video retrieval for compositional driving scenarios, built for NVIDIA's CASCADE challenge: 0.243 to 0.434 R-Precision over five submissions, running offline on one A100 in under six hours."
-date: "Nov 29 2026"
+date: "Nov 25 2026"
 repoURL: "https://github.com/Mister-Raggs/cascade-scenario-retrieval"
 tags: ["Python", "PyTorch", "LoRA", "Docker"]
 ---
